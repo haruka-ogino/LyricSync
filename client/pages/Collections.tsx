@@ -3,9 +3,11 @@ export default function Collections() {
   return (
     <>
       <h1>Collections</h1>
-      {/* {collections.map((collection) => (
-        <Collection {...collection} />
-      ))} */}
+      <ul>
+        {collections.map((collection, i) => (
+          <li key={i}>{collection}</li>
+        ))}
+      </ul>
     </>
   )
 }
