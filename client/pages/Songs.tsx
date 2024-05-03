@@ -5,10 +5,12 @@ export default function Songs() {
   const collectionX = ['My Heart Will Go On', 'Dejavu', 'Seven']
   return (
     <>
-      <h1>{`Songs inside the collection ${id}`}</h1>
-      {collectionX.map((collection, i) => (
-        <h2 key={i}>{collection}</h2>
-      ))}
+      <h1>{`Songs inside collection ${id}:`}</h1>
+      <ul>
+        {collectionX.map((collection, i) => (
+          <li key={i}>{collection}</li>
+        ))}
+      </ul>
     </>
   )
 }
