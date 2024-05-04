@@ -1,10 +1,10 @@
 import { useDeleteCollection } from '../hooks/useCollections'
 
-interface Prop {
+interface Id {
   id: number
 }
 
-function Delete({ id }: Prop) {
+function Delete({ id }: Id) {
   const mutation = useDeleteCollection()
 
   function handleClick() {
