@@ -1,10 +1,13 @@
-import connection from './connection'
-import { Collection, Lyrics } from '../../models/collections'
+import db from './connection'
+import { Collection, CollectionData, Lyrics } from '../../models/collections'
 
-const db = connection
+export async function getCollections() {
+  const collections = await db('collections')
+  return collections as Collection[]
+}
 
-export async function getCollections(): Promise<Collection[]> {
-  return db('collections')
+export async function addCollection(data: CollectionData) {
+  return await db('collections').insert(data)
 }
 
 export async function getLyrics(songId: number): Promise<Lyrics> {

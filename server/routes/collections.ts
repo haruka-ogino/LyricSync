@@ -12,6 +12,16 @@ router.get('/', async (req, res) => {
   }
 })
 
+router.post('/', async (req, res) => {
+  try {
+    const data = req.body
+    await db.addCollection(data)
+    res.status(201)
+  } catch (error) {
+    res.status(500)
+  }
+})
+
 // getLyrics by songId
 router.get('/:collectionId/:songId', async (req, res) => {
   try {
