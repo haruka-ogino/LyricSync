@@ -1,5 +1,5 @@
 import connection from './connection'
-import { Collection } from '../../models/collections'
+import { Collection, Lyrics } from '../../models/collections'
 
 const db = connection
 
@@ -7,7 +7,7 @@ export async function getCollections(): Promise<Collection[]> {
   return db('collections')
 }
 
-export async function getLyrics(songId: number): Promise<Collection[]> {
+export async function getLyrics(songId: number): Promise<Lyrics> {
   return db('lyrics')
     .where('song_id', songId)
 
@@ -25,4 +25,5 @@ export async function getLyrics(songId: number): Promise<Collection[]> {
       'lyrics.romanisation as romanisation',
       'lyrics.romanised_text as romanisedLyrics',
     )
+    .first()
 }
