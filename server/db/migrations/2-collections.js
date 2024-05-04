@@ -3,7 +3,7 @@
  * @returns { Promise<void> }
  */
 export async function up(knex) {
-  return knex.schema.createTable('playlists', (table) => {
+  return knex.schema.createTable('collections', (table) => {
     table.increments('id').primary
     table.string('name')
     table.integer('user_id').references('users.id')
@@ -15,5 +15,5 @@ export async function up(knex) {
  * @returns { Promise<void> }
  */
 export async function down(knex) {
-  return knex.schema.dropTable('playlists')
+  return knex.schema.dropTable('collections')
 }
