@@ -11,9 +11,6 @@ export default function Lyrics() {
     song = 1
   }
 
-  const lyricsYEn = ['Dejavu English translation']
-  const lyricsYKr = ['Dejavu in Korean']
-
   const { data: lyrics, isLoading, isError } = useLyrics(song)
 
   if (isLoading) return <h1>Loading song...</h1>
@@ -36,12 +33,3 @@ export default function Lyrics() {
     )
   }
 }
-
-// songId: number
-// songTitle: string
-// originLang: string
-// transLang: string
-// originLyrics: string
-// translatedLyrics: string
-// romanisation: string
-// romanisedLyrics: string

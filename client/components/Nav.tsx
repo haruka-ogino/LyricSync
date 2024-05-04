@@ -10,7 +10,7 @@ export default function Nav() {
       <Link to="collections/X">
         <h2>My Songs from Collection X</h2>
       </Link>
-      <Link to="collections/X/Y">
+      <Link to="collections/1/1">
         <h2>My Lyrics from Song Y</h2>
       </Link>
       <Link to="collections/new-collection">
