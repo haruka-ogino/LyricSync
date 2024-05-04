@@ -10,19 +10,30 @@ export default function Lyrics() {
   } else {
     song = 1
   }
+  let collection
+  if (collectionId !== undefined) {
+    collection = Number(collectionId)
+  } else {
+    collection = 1
+  }
 
   const {
     data: lyrics,
     isLoading,
     isError,
     error,
-  } = useLyrics(song, collectionId)
-
-  console.log(error)
+  } = useLyrics(song, collection)
 
   if (isLoading) return <h1>Loading song...</h1>
 
-  if (isError) return <h1>Sorry, you appear to be encountering an error.</h1>
+  if (isError) {
+    return (
+      <div>
+        <h1>Sorry, there was an error loading the lyrics:</h1>
+        <p>{error.message}</p>
+      </div>
+    )
+  }
 
   if (lyrics) {
     return (
