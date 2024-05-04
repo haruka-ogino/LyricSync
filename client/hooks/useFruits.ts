@@ -14,7 +14,7 @@ export function useFruits() {
   }
 }
 
-export function useLyrics(songId: number) {
+export function useLyrics(songId: number, collectionId: number) {
   return useQuery({
     queryKey: ['lyrics', songId],
     queryFn: () => getLyrics(songId, collectionId),
