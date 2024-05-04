@@ -11,9 +11,12 @@ export function getFruits(): Promise<string[]> {
 
 export async function getLyrics(
   songId: number,
-): Promise<Lyrics | undefined | Message> {
+  collectionId: number,
+): Promise<Lyrics | undefined> {
   try {
-    const res = await request.get(rootUrl + `/collections/1/${songId}`)
+    const res = await request.get(
+      rootUrl + `/collections/${collectionId}/${songId}`,
+    )
     return res.body as Lyrics
   } catch (e) {
     console.error(e)
