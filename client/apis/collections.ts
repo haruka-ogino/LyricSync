@@ -1,9 +1,13 @@
 import request from 'superagent'
+import { Collection, CollectionData } from '../../models/collections'
 
-const rootUrl = '/api/v1'
+const rootUrl = '/api/v1/collections'
 
-export function getFruits(): Promise<string[]> {
-  return request.get(rootUrl + '/fruits').then((res) => {
-    return res.body.fruits
-  })
+export async function getCollections() {
+  const res = await request.get(rootUrl)
+  return res.body as Collection[]
+}
+
+export async function addCollection(data: CollectionData) {
+  await request.post(rootUrl).send(data)
 }
