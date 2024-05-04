@@ -19,7 +19,7 @@ function Collections() {
           {data.map((collection, i) => (
             <li key={i}>
               {collection.name}
-              <Delete />
+              <Delete id={Number(i)} />
             </li>
           ))}
         </ul>

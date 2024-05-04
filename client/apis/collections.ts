@@ -11,3 +11,7 @@ export async function getCollections() {
 export async function addCollection(data: CollectionData) {
   await request.post(rootUrl).send(data)
 }
+
+export async function deleteCollection(id: number) {
+  await request.delete(`${rootUrl}/${id}`)
+}

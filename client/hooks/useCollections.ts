@@ -16,3 +16,11 @@ export function useAddCollection() {
     onSuccess: () => qc.invalidateQueries({ queryKey: ['newCollection'] }),
   })
 }
+
+export function useDeleteCollection() {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: (id: number) => api.deleteCollection(id),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['deleteCollection'] }),
+  })
+}
