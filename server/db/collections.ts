@@ -6,3 +6,7 @@ const db = connection
 export async function getCollections(): Promise<Collection[]> {
   return db('collections')
 }
+
+export async function getLyrics(songId): Promise<Collection[]> {
+  return db('collections')
+}
