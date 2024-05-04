@@ -9,7 +9,7 @@ router.get('/:collectionId/:songId', async (req, res) => {
     const songId = Number(req.params.songId)
     const lyrics = await db.getLyrics(songId)
 
-    if (!lyrics || lyrics.collectionId !== collectionId) {
+    if (lyrics.collectionId !== collectionId) {
       return res.status(404).json({
         message: 'This collection does not contain the selected song.',
       })
