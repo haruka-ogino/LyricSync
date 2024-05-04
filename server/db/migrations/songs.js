@@ -7,7 +7,7 @@ export async function up(knex) {
     table.increments('id').primary
     table.string('title')
     table.string('artist')
-    table.integer('playlist_id').references('playlists.id')
+    table.integer('collection_id').references('collections.id')
   })
 }
 
