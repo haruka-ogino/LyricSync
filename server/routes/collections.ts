@@ -25,10 +25,10 @@ router.post('/', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-    const id = Number(useParams())
+    const id = Number(req.params.id)
     await db.deleteCollection(id)
   } catch (error) {
-    res.status(500)
+    res.status(500).json({ message: 'Something went wrong' })
   }
 })
 
