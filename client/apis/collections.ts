@@ -7,3 +7,5 @@ export function getFruits(): Promise<string[]> {
     return res.body.fruits
   })
 }
+
+// export function getLyrics(songId): Promise<Lyrics> {}
