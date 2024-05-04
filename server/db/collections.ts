@@ -10,6 +10,9 @@ export async function addCollection(data: CollectionData) {
   return await db('collections').insert(data)
 }
 
+export async function deleteCollection(id: number) {
+  await db('collections').where({ id }).delete()
+}
 export async function getLyrics(songId: number): Promise<Lyrics> {
   return db('lyrics')
     .where('song_id', songId)
