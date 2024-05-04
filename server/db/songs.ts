@@ -1,5 +1,5 @@
 import db from './connection'
-import { Lyrics } from '../../models/collections'
+import { Lyrics } from '../../models/songs'
 
 export async function getLyrics(songId: number): Promise<Lyrics> {
   return db('lyrics')
