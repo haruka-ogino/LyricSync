@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { Lyrics } from '../../models/collections'
+import { Lyrics, Message } from '../../models/songs'
 
 const rootUrl = '/api/v1'
 
@@ -9,7 +9,9 @@ export function getFruits(): Promise<string[]> {
   })
 }
 
-export async function getLyrics(songId: number): Promise<Lyrics | undefined> {
+export async function getLyrics(
+  songId: number,
+): Promise<Lyrics | undefined | Message> {
   try {
     const res = await request.get(rootUrl + `/collections/1/${songId}`)
     return res.body as Lyrics
