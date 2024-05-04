@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
+import '../styles/nav.css'
 
 export default function Nav() {
   return (
-    <>
+    <nav>
       <Link to="collections">
         <h2>My Collections</h2>
       </Link>
@@ -18,6 +19,6 @@ export default function Nav() {
       <Link to="collections/X/add-song">
         <h2>Add Song to Collection X</h2>
       </Link>
-    </>
+    </nav>
   )
 }
