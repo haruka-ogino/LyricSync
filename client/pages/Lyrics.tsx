@@ -25,12 +25,12 @@ export default function Lyrics() {
       <>
         <h1>{`Song of id ${songId} inside collection ${collectionId}:`}</h1>
         <div>
-          <h2>English Lyrics:</h2>
-          <p>{lyricsYEn}</p>
+          <h2>{lyrics.originLang} Lyrics:</h2>
+          <p>{lyrics.originLyrics}</p>
         </div>
         <div>
-          <h2>Korean Lyrics:</h2>
-          <p>{lyricsYKr}</p>
+          <h2>{lyrics.transLang} Lyrics:</h2>
+          <p>{lyrics.translatedLyrics}</p>
         </div>
       </>
     )
