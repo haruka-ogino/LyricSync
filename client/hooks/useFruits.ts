@@ -4,7 +4,7 @@ import {
   useQueryClient,
   MutationFunction,
 } from '@tanstack/react-query'
-import { getFruits } from '../apis/fruits.ts'
+import { getFruits, getLyrics } from '../apis/fruits.ts'
 
 export function useFruits() {
   const query = useQuery({ queryKey: ['fruits'], queryFn: getFruits })
@@ -14,8 +14,15 @@ export function useFruits() {
   }
 }
 
+export function useLyrics(songId: number) {
+  return useQuery({
+    queryKey: ['lyrics', songId],
+    queryFn: () => getLyrics(songId),
+  })
+}
+
 export function useFruitsMutation<TData = unknown, TVariables = unknown>(
-  mutationFn: MutationFunction<TData, TVariables>
+  mutationFn: MutationFunction<TData, TVariables>,
 ) {
   const queryClient = useQueryClient()
   const mutation = useMutation({
