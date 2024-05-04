@@ -3,6 +3,6 @@ export interface CollectionData {
   user_id: number
 }
 
-export interface Collection {
+export interface Collection extends CollectionData {
   id: number
 }

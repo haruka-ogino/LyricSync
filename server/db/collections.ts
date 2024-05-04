@@ -1,8 +1,7 @@
-import connection from './connection'
+import db from './connection'
 import { Collection } from '../../models/collections'
 
-const db = connection
-
-export async function getCollections(): Promise<Collection[]> {
-  return db('collections')
+export async function getCollections() {
+  const collections = await db('collections')
+  return collections as Collection[]
 }
