@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { useLyrics } from '../hooks/useFruits'
+import { useLyrics } from '../hooks/useSongs'
 
 export default function Lyrics() {
   const { collectionId } = useParams()
