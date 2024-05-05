@@ -40,7 +40,7 @@ External APIs:
 
 ```
 git clone https://github.com/haruka-ogino/LyricSync.git
-cd ghibli-things
+cd LyricSync
 npm install # to install dependencies
 npm run dev # to start the dev server
 ```
