@@ -17,23 +17,11 @@ export default function Lyrics() {
     collection = 1
   }
 
-  const {
-    data: lyrics,
-    isLoading,
-    isError,
-    error,
-  } = useLyrics(song, collection)
+  const { data: lyrics, isLoading, isError } = useLyrics(song, collection)
 
   if (isLoading) return <h1>Loading song...</h1>
 
-  if (isError) {
-    return (
-      <div>
-        <h1>Sorry, there was an error loading the lyrics:</h1>
-        <p>{error.message}</p>
-      </div>
-    )
-  }
+  if (isError) return <h1>Sorry, there was an error loading the lyrics.</h1>
 
   if (lyrics) {
     return (
