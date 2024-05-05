@@ -1,3 +1,4 @@
+import Delete from '../components/Delete'
 import { useCollections } from '../hooks/useCollections'
 
 function Collections() {
@@ -16,7 +17,10 @@ function Collections() {
         <h1>Collections</h1>
         <ul>
           {data.map((collection, i) => (
-            <li key={i}>{collection.name}</li>
+            <li key={i}>
+              {collection.name}
+              <Delete id={collection.id} />
+            </li>
           ))}
         </ul>
       </>

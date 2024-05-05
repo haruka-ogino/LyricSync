@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import * as db from '../db/collections'
+import { useParams } from 'react-router-dom'
 const router = Router()
 
 router.get('/', async (req, res) => {
@@ -19,6 +20,15 @@ router.post('/', async (req, res) => {
     res.status(201)
   } catch (error) {
     res.status(500)
+  }
+})
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    await db.deleteCollection(id)
+  } catch (error) {
+    res.status(500).json({ message: 'Something went wrong' })
   }
 })
 
