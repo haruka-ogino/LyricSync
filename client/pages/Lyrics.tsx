@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { useLyrics } from '../hooks/useFruits'
+import { useLyrics } from '../hooks/useSongs'
 
 export default function Lyrics() {
   const { collectionId } = useParams()
@@ -10,12 +10,18 @@ export default function Lyrics() {
   } else {
     song = 1
   }
+  let collection
+  if (collectionId !== undefined) {
+    collection = Number(collectionId)
+  } else {
+    collection = 1
+  }
 
-  const { data: lyrics, isLoading, isError } = useLyrics(song)
+  const { data: lyrics, isLoading, isError } = useLyrics(song, collection)
 
   if (isLoading) return <h1>Loading song...</h1>
 
-  if (isError) return <h1>Sorry, you appear to be encountering an error.</h1>
+  if (isError) return <h1>Sorry, there was an error loading the lyrics.</h1>
 
   if (lyrics) {
     return (

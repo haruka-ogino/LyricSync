@@ -9,5 +9,10 @@ export async function seed(knex) {
       name: 'favorite',
       user_id: 1,
     },
+    {
+      id: 2,
+      name: 'frequently played',
+      user_id: 2,
+    },
   ])
 }
