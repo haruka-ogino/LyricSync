@@ -41,7 +41,7 @@ router.patch('/update/origin/:id', async (req, res) => {
   }
 })
 
-router.patch('/update/origin/:id', async (req, res) => {
+router.patch('/update/translated/:id', async (req, res) => {
   try {
     const data = req.body
     const { currentId, translatedLyrics, transLang } = data
