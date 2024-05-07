@@ -25,7 +25,22 @@ function EditLyrics({ lyrics, lang }: Props) {
     mutation.mutate(newLyrics)
   }
 
-  return <></>
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="org-lyrics">Original Lyrics: </label>
+        <input
+          onChange={(e) =>
+            setNewLyrics({ ...newLyrics, originLyrics: e.target.value })
+          }
+          type="text"
+          name="org-lyrics"
+          id="org-lyrics"
+          // placeholder={newLyrics.originLyrics}
+        />
+      </form>
+    </>
+  )
 }
 
 export default EditLyrics
