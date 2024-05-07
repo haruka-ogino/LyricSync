@@ -7,7 +7,9 @@ interface Props {
 }
 
 function EditLyrics({ lyrics, lang }: Props) {
-  const mutation = useEditLyrics()
+  console.log(lyrics)
+
+  // const mutation = useEditLyrics()
 
   return <button>Edit Lyrics</button>
 }
