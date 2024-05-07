@@ -9,6 +9,7 @@ export async function getLyrics(songId: number): Promise<Lyrics> {
     .join('languages as originLang', 'originLang.id', 'original_lang')
     .join('languages as transLang', 'transLang.id', 'trans_lang')
     .select(
+      'lyrics.id as id',
       'lyrics.song_id as songId',
       'songs.title as songTitle',
       'originLang.name as originLang',

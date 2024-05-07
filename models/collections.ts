@@ -8,6 +8,8 @@ export interface Collection extends CollectionData {
 }
 
 export interface Lyrics {
+  id: number
+
   songId: number
   songTitle: string
   originLang: string

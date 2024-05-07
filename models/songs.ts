@@ -8,6 +8,7 @@ export interface FruitData {
 }
 
 export interface Lyrics {
+  id: number
   songId: number
   songTitle: string
   originLang: string
