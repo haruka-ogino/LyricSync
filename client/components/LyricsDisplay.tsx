@@ -18,7 +18,11 @@ function LyricsDisplay({ lyrics, lang }: Props) {
           <div>
             <button onClick={() => setEditOr(true)}>Edit Original</button>
             <h2>{lyrics.originLang} Lyrics:</h2>
-            <p>{lyrics.originLyrics}</p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: lyrics.originLyrics.replace(/\n/g, '<br>'),
+              }}
+            />
           </div>
         ) : (
           <EditLyrics
@@ -33,7 +37,11 @@ function LyricsDisplay({ lyrics, lang }: Props) {
           <div>
             <button onClick={() => setEditTr(true)}>Edit Translation</button>
             <h2>{lyrics.transLang} Lyrics:</h2>
-            <p>{lyrics.translatedLyrics}</p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: lyrics.originLyrics.replace(/\n/g, '<br>'),
+              }}
+            />
           </div>
         ) : (
           <EditLyrics
