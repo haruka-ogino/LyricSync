@@ -22,3 +22,25 @@ export async function getLyrics(
     throw new Error('Failed to fetch lyrics. Please try again.')
   }
 }
+
+// export async function editLyrics(
+//   songId: number,
+//   collectionId: number,
+//   data:Lyrics
+// ): Promise<Lyrics | undefined> {
+//   try {
+//     const { id } = data
+//     const res = await request
+//       .patch(rootUrl + `/characters/update/${id}`)
+//       .send(data)
+
+//     if (!res.ok) {
+//       throw new Error(`Failed to fetch lyrics (${res.status}): ${res.error}`)
+//     }
+
+//     return res.body as Lyrics
+//   } catch (error) {
+//     console.error('Error fetching lyrics:', error)
+//     throw new Error('Failed to fetch lyrics. Please try again.')
+//   }
+// }
