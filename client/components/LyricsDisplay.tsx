@@ -21,7 +21,7 @@ function LyricsDisplay({ lyrics, lang }: Props) {
             <p>{lyrics.originLyrics}</p>
           </div>
         ) : (
-          <EditLyrics />
+          <EditLyrics lyrics={lyrics} lang={lang} />
         ))}
       {lang === 'translated' &&
         (!editTr ? (
@@ -31,7 +31,7 @@ function LyricsDisplay({ lyrics, lang }: Props) {
             <p>{lyrics.translatedLyrics}</p>
           </div>
         ) : (
-          <EditLyrics />
+          <EditLyrics lyrics={lyrics} lang={lang} />
         ))}
     </>
   )

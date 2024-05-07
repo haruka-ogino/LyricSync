@@ -1,11 +1,12 @@
+import { Lyrics } from '../../models/songs'
 import { useEditLyrics } from '../hooks/useSongs'
 
 interface Props {
-  id: number
+  lyrics: Lyrics
   lang: string
 }
 
-function EditLyrics() {
+function EditLyrics({ lyrics, lang }: Props) {
   const mutation = useEditLyrics()
 
   return <button>Edit Lyrics</button>
