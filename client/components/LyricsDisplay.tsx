@@ -39,7 +39,7 @@ function LyricsDisplay({ lyrics, lang }: Props) {
             <h2>{lyrics.transLang} Lyrics:</h2>
             <p
               dangerouslySetInnerHTML={{
-                __html: lyrics.originLyrics.replace(/\n/g, '<br>'),
+                __html: lyrics.translatedLyrics.replace(/\n/g, '<br>'),
               }}
             />
           </div>
