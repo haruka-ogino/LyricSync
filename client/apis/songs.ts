@@ -25,9 +25,14 @@ export async function getLyrics(
 export async function editLyrics(lyrics: EditedLyrics) {
   try {
     const { id } = lyrics
+    console.log(lyrics)
+
     const res = await request
       .patch(rootUrl + `/update/lyrics/${id}`)
       .send(lyrics)
+
+    console.log('Response:', res.body)
+    console.log('after res')
 
     return res.body
   } catch (error) {

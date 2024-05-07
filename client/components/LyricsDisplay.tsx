@@ -21,7 +21,7 @@ function LyricsDisplay({ lyrics, lang }: Props) {
             <p>{lyrics.originLyrics}</p>
           </div>
         ) : (
-          <EditLyrics lyrics={lyrics} lang={lang} />
+          <EditLyrics lyrics={lyrics} lang={lang} setEditOr={setEditOr} />
         ))}
       {lang === 'translated' &&
         (!editTr ? (

@@ -5,10 +5,10 @@ import { useEditLyrics } from '../hooks/useSongs'
 interface Props {
   lyrics: Lyrics
   lang: string
+  setEditOr: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-function EditLyrics({ lyrics, lang }: Props) {
-  console.log(lyrics)
+function EditLyrics({ lyrics, lang, setEditOr }: Props) {
   const initialState = {
     id: lyrics.id,
     originLyrics: lyrics.originLyrics,
@@ -21,8 +21,9 @@ function EditLyrics({ lyrics, lang }: Props) {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    // console.log(char)
+    // console.log(newLyrics)
     mutation.mutate(newLyrics)
+    setEditOr(false)
   }
 
   return (
@@ -36,10 +37,11 @@ function EditLyrics({ lyrics, lang }: Props) {
           }
           name="org-lyrics"
           id="org-lyrics"
-          placeholder="Original Lyrics"
+          // placeholder="Original Lyrics"
           rows={10}
           value={newLyrics.originLyrics}
         />
+        <button type="submit">Update Lyrics</button>
       </form>
     </>
   )
