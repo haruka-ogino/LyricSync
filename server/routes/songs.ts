@@ -22,35 +22,72 @@ router.get('/:collectionId/:songId', async (req, res) => {
   }
 })
 
-router.patch('/update/origin/:id', async (req, res) => {
+// router.patch('/update/origin/:id', async (req, res) => {
+//   try {
+//     const data = req.body
+//     const { currentId, originLyrics, originLang } = data
+//     const newLyrics = {
+//       id: currentId,
+//       original_lyric: originLyrics,
+//       original_lang: originLang,
+//     }
+//     const id = Number(req.params.id)
+//     const edited = await db.editLyrics(id, newLyrics)
+
+//     res.status(200).json(edited)
+//   } catch (error) {
+//     console.log(error)
+//     res.status(500).json({ message: 'Something went wrong' })
+//   }
+// })
+
+// router.patch('/update/translated/:id', async (req, res) => {
+//   try {
+//     const data = req.body
+//     const { currentId, translatedLyrics, transLang } = data
+//     const newLyrics = {
+//       id: currentId,
+//       trans_lyric: translatedLyrics,
+//       trans_lang: transLang,
+//     }
+//     const id = Number(req.params.id)
+//     const edited = await db.editLyrics(id, newLyrics)
+
+//     res.status(200).json(edited)
+//   } catch (error) {
+//     console.log(error)
+//     res.status(500).json({ message: 'Something went wrong' })
+//   }
+// })
+
+router.patch('/update/:lang/:id', async (req, res) => {
   try {
     const data = req.body
-    const { currentId, originLyrics, originLang } = data
-    const newLyrics = {
-      id: currentId,
-      original_lyric: originLyrics,
-      original_lang: originLang,
-    }
     const id = Number(req.params.id)
-    const edited = await db.editLyrics(id, newLyrics)
-
-    res.status(200).json(edited)
-  } catch (error) {
-    console.log(error)
-    res.status(500).json({ message: 'Something went wrong' })
-  }
-})
-
-router.patch('/update/translated/:id', async (req, res) => {
-  try {
-    const data = req.body
-    const { currentId, translatedLyrics, transLang } = data
-    const newLyrics = {
-      id: currentId,
-      trans_lyric: translatedLyrics,
-      trans_lang: transLang,
+    const lang = req.params.lang
+    let newLyrics
+    if (lang === 'original') {
+      const { currentId, originLyrics, originLang } = data
+      newLyrics = {
+        id: currentId,
+        original_lyric: originLyrics,
+        original_lang: originLang,
+      }
+    } else if (lang === 'translated') {
+      const { currentId, translatedLyrics, transLang } = data
+      newLyrics = {
+        id: currentId,
+        trans_lyric: translatedLyrics,
+        trans_lang: transLang,
+      }
     }
-    const id = Number(req.params.id)
+
+    if (!newLyrics) {
+      return res.status(404).json({
+        message: 'Unable to edit lyrics',
+      })
+    }
+
     const edited = await db.editLyrics(id, newLyrics)
 
     res.status(200).json(edited)
