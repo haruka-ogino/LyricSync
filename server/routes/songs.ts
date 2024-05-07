@@ -22,11 +22,10 @@ router.get('/:collectionId/:songId', async (req, res) => {
   }
 })
 
-router.patch('/update/:lang/:id', async (req, res) => {
+router.patch('/update/lyrics/:id', async (req, res) => {
   try {
     const data = req.body
     const id = Number(req.params.id)
-    const lang = req.params.lang
     const { originLyrics, originLang, translatedLyrics, transLang } = data
 
     const newLyrics = {
