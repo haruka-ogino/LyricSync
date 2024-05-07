@@ -26,7 +26,7 @@ export async function getLyrics(songId: number): Promise<Lyrics> {
 interface EditedLyrics {
   id: number
   original_lyric: string
-  trans_lyric: string
+  original_lang: number
 }
 export async function editLyrics(id: number, editedLyrics: EditedLyrics) {
   return db('lyrics').where('id', id).update(editedLyrics)

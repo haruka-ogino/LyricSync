@@ -22,14 +22,14 @@ router.get('/:collectionId/:songId', async (req, res) => {
   }
 })
 
-router.patch('/update/:id', async (req, res) => {
+router.patch('/update/origin/:id', async (req, res) => {
   try {
     const data = req.body
-    const { currentId, originLyrics, translatedLyrics } = data
+    const { currentId, originLyrics, originLang } = data
     const newLyrics = {
       id: currentId,
       original_lyric: originLyrics,
-      trans_lyric: translatedLyrics,
+      original_lang: originLang,
     }
     const id = Number(req.params.id)
     const edited = await db.editLyrics(id, newLyrics)

@@ -1,16 +1,16 @@
-import { useEditLyrics } from '../hooks/useSongs'
+// import { useEditLyrics } from '../hooks/useSongs'
 
-interface Id {
-  id: number
-}
+// interface Id {
+//   id: number
+// }
 
-function EditLyrics({ id }: Id) {
-  const mutation = useEditLyrics()
+// function EditLyrics({ id }: Id) {
+//   const mutation = useEditLyrics()
 
-  function handleClick() {
-    mutation.mutate(id)
-  }
-  return <button onClick={handleClick}>Edit Lyrics</button>
-}
+//   function handleClick() {
+//     mutation.mutate(id)
+//   }
+//   return <button onClick={handleClick}>Edit Lyrics</button>
+// }
 
-export default EditLyrics
+// export default EditLyrics
