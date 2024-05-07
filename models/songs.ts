@@ -26,3 +26,11 @@ export interface EditedTrLyrics {
   translatedLang: string
   translatedLyrics: string
 }
+
+export interface EditedLyrics {
+  id: number
+  originLyrics: string
+  originLang: string
+  translatedLang: string
+  translatedLyrics: string
+}
