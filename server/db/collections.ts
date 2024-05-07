@@ -1,5 +1,6 @@
 import db from './connection'
-import { Collection, CollectionData, Lyrics } from '../../models/collections'
+import { Collection, CollectionData } from '../../models/collections'
+import { Lyrics } from '../../models/songs'
 
 export async function getCollections() {
   const collections = await db('collections')
