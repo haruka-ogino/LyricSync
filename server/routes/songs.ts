@@ -41,4 +41,23 @@ router.patch('/update/origin/:id', async (req, res) => {
   }
 })
 
+router.patch('/update/origin/:id', async (req, res) => {
+  try {
+    const data = req.body
+    const { currentId, originLyrics, originLang } = data
+    const newLyrics = {
+      id: currentId,
+      original_lyric: originLyrics,
+      original_lang: originLang,
+    }
+    const id = Number(req.params.id)
+    const edited = await db.editLyrics(id, newLyrics)
+
+    res.status(200).json(edited)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
 export default router
