@@ -27,21 +27,14 @@ router.patch('/update/:lang/:id', async (req, res) => {
     const data = req.body
     const id = Number(req.params.id)
     const lang = req.params.lang
-    let newLyrics
-    if (lang === 'original') {
-      const { currentId, originLyrics, originLang } = data
-      newLyrics = {
-        id: currentId,
-        original_lyric: originLyrics,
-        original_lang: originLang,
-      }
-    } else if (lang === 'translated') {
-      const { currentId, translatedLyrics, transLang } = data
-      newLyrics = {
-        id: currentId,
-        trans_lyric: translatedLyrics,
-        trans_lang: transLang,
-      }
+    const { originLyrics, originLang, translatedLyrics, transLang } = data
+
+    const newLyrics = {
+      id,
+      original_lyric: originLyrics,
+      original_lang: originLang,
+      trans_lyric: translatedLyrics,
+      trans_lang: transLang,
     }
 
     if (!newLyrics) {
