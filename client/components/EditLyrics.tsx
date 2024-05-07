@@ -29,14 +29,16 @@ function EditLyrics({ lyrics, lang }: Props) {
     <>
       <form onSubmit={handleSubmit}>
         <label htmlFor="org-lyrics">Original Lyrics: </label>
-        <input
+        <br />
+        <textarea
           onChange={(e) =>
             setNewLyrics({ ...newLyrics, originLyrics: e.target.value })
           }
-          type="text"
           name="org-lyrics"
           id="org-lyrics"
-          // placeholder={newLyrics.originLyrics}
+          placeholder="Original Lyrics"
+          rows={10}
+          value={newLyrics.originLyrics}
         />
       </form>
     </>

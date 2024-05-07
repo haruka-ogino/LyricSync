@@ -14,6 +14,8 @@ export async function getLyrics(songId: number): Promise<Lyrics> {
       'songs.title as songTitle',
       'originLang.name as originLang',
       'transLang.name as transLang',
+      'originLang.id as originLangId',
+      'transLang.id as transLangId',
       'lyrics.original_lyric as originLyrics',
       'lyrics.trans_lyric as translatedLyrics',
       'lyrics.romanisation as romanisation',

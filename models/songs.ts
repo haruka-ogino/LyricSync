@@ -4,6 +4,8 @@ export interface Lyrics {
   songTitle: string
   originLang: string
   transLang: string
+  originLangId: number
+  transLangId: number
   originLyrics: string
   translatedLyrics: string
   romanisation: string
