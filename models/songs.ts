@@ -32,7 +32,7 @@ export interface EditedTrLyrics {
 export interface EditedLyrics {
   id: number
   originLyrics: string
-  originLang: string
-  translatedLang: string
+  originLang: number
+  translatedLang: number
   translatedLyrics: string
 }

@@ -12,8 +12,8 @@ function EditLyrics({ lyrics, lang, setEditOr }: Props) {
   const initialState = {
     id: lyrics.id,
     originLyrics: lyrics.originLyrics,
-    originLang: lyrics.originLang,
-    translatedLang: lyrics.transLang,
+    originLang: lyrics.originLangId,
+    translatedLang: lyrics.transLangId,
     translatedLyrics: lyrics.translatedLyrics,
   }
   const [newLyrics, setNewLyrics] = useState(initialState)
