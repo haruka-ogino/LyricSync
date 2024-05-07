@@ -1,10 +1,11 @@
 // import { useEditLyrics } from '../hooks/useSongs'
 
-// interface Id {
+// interface Props {
 //   id: number
+//   lang: string
 // }
 
-// function EditLyrics({ id }: Id) {
+// function EditLyrics({ id, lang }) {
 //   const mutation = useEditLyrics()
 
 //   function handleClick() {
