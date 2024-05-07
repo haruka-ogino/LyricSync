@@ -32,9 +32,9 @@ router.patch('/update/:id', async (req, res) => {
       trans_lyric: translatedLyrics,
     }
     const id = Number(req.params.id)
-    const added = await db.editLyrics(id, newLyrics)
+    const edited = await db.editLyrics(id, newLyrics)
 
-    res.status(201).json(added)
+    res.status(200).json(edited)
   } catch (error) {
     console.log(error)
     res.status(500).json({ message: 'Something went wrong' })
