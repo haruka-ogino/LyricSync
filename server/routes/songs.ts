@@ -44,11 +44,11 @@ router.patch('/update/origin/:id', async (req, res) => {
 router.patch('/update/origin/:id', async (req, res) => {
   try {
     const data = req.body
-    const { currentId, originLyrics, originLang } = data
+    const { currentId, translatedLyrics, transLang } = data
     const newLyrics = {
       id: currentId,
-      original_lyric: originLyrics,
-      original_lang: originLang,
+      trans_lyric: translatedLyrics,
+      trans_lang: transLang,
     }
     const id = Number(req.params.id)
     const edited = await db.editLyrics(id, newLyrics)
