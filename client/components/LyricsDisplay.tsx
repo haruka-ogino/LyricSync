@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Lyrics } from '../../models/songs'
+import EditLyrics from './EditLyrics'
 
 interface Props {
   lyrics: Lyrics
@@ -6,20 +8,31 @@ interface Props {
 }
 
 function LyricsDisplay({ lyrics, lang }: Props) {
+  const [editOr, setEditOr] = useState(false)
+  const [editTr, setEditTr] = useState(false)
+
   return (
     <>
-      {lang === 'original' && (
-        <div>
-          <h2>{lyrics.originLang} Lyrics:</h2>
-          <p>{lyrics.originLyrics}</p>
-        </div>
-      )}
-      {lang === 'translated' && (
-        <div>
-          <h2>{lyrics.transLang} Lyrics:</h2>
-          <p>{lyrics.translatedLyrics}</p>
-        </div>
-      )}
+      {lang === 'original' &&
+        (!editOr ? (
+          <div>
+            <button onClick={() => setEditOr(true)}>Edit Original</button>
+            <h2>{lyrics.originLang} Lyrics:</h2>
+            <p>{lyrics.originLyrics}</p>
+          </div>
+        ) : (
+          <EditLyrics />
+        ))}
+      {lang === 'translated' &&
+        (!editTr ? (
+          <div>
+            <button onClick={() => setEditTr(true)}>Edit Translation</button>
+            <h2>{lyrics.transLang} Lyrics:</h2>
+            <p>{lyrics.translatedLyrics}</p>
+          </div>
+        ) : (
+          <EditLyrics />
+        ))}
     </>
   )
 }
