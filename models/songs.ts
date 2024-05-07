@@ -15,8 +15,14 @@ export interface Message {
   message: string
 }
 
-export interface EditedLyrics {
+export interface EditedOrLyrics {
   id: number
   originLyrics: string
+  originLang: string
+}
+
+export interface EditedTrLyrics {
+  id: number
+  translatedLang: string
   translatedLyrics: string
 }

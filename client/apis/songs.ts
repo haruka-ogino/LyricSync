@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { EditedLyrics, Lyrics } from '../../models/songs'
+import { EditedOrLyrics, EditedTrLyrics, Lyrics } from '../../models/songs'
 
 const rootUrl = '/api/v1/collections'
 
@@ -21,12 +21,19 @@ export async function getLyrics(
   }
 }
 
-export async function editLyrics(data: EditedLyrics) {
+// collections/update/:lang/:id
+export async function editLyrics(data: {
+  lyrics: EditedOrLyrics | EditedTrLyrics
+  lang: string
+}) {
   try {
-    const { id } = data
-    const res = await request.patch(rootUrl + `/update/${id}`).send(data)
+    const { lyrics, lang } = data
+    const { id } = lyrics
+    const res = await request
+      .patch(rootUrl + `/update/${lang}/${id}`)
+      .send(lyrics)
 
-    return res.body as Lyrics
+    return res.body
   } catch (error) {
     console.error('Error editing lyrics.')
     throw new Error('Failed to edit lyrics. Please try again.')
