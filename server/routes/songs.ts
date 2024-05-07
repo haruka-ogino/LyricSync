@@ -22,4 +22,24 @@ router.get('/:collectionId/:songId', async (req, res) => {
   }
 })
 
+router.patch('/update/:id', async (req, res) => {
+  try {
+    const data = req.body
+    console.log(data)
+    const { currentId, originLyrics, translatedLyrics } = data
+    const newLyrics = {
+      id: currentId,
+      original_lyric: originLyrics,
+      trans_lyric: translatedLyrics,
+    }
+    const id = Number(req.params.id)
+    const added = await db.editLyrics(id, newLyrics)
+
+    res.status(201).json(added)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
 export default router

@@ -1,12 +1,3 @@
-export interface Fruit {
-  id: number
-  name: string
-}
-
-export interface FruitData {
-  name: string
-}
-
 export interface Lyrics {
   id: number
   songId: number
@@ -22,4 +13,10 @@ export interface Lyrics {
 
 export interface Message {
   message: string
+}
+
+export interface EditedLyrics {
+  id: number
+  originLyrics: string
+  translatedLyrics: string
 }

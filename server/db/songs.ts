@@ -22,3 +22,13 @@ export async function getLyrics(songId: number): Promise<Lyrics> {
     )
     .first()
 }
+
+interface EditedLyrics {
+  id: number
+  original_lyric: string
+  trans_lyric: string
+}
+export async function editLyrics(id: number, editedLyrics: EditedLyrics) {
+  console.log(editLyrics)
+  return db('lyrics').where('id', id).update(editedLyrics)
+}
