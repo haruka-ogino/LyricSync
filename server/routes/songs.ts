@@ -25,7 +25,6 @@ router.get('/:collectionId/:songId', async (req, res) => {
 router.patch('/update/lyrics/:id', async (req, res) => {
   try {
     const data = req.body
-    console.log(data)
 
     const id = Number(req.params.id)
     const { originLyrics, originLang, translatedLyrics, transLang } = data

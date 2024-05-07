@@ -22,7 +22,6 @@ function EditLyrics({ lyrics, lang, setEditOr, setEditTr }: Props) {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    // console.log(newLyrics)
     mutation.mutate(newLyrics)
     setEditOr(false)
     setEditTr(false)
