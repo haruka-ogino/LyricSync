@@ -28,7 +28,8 @@ export default function Lyrics() {
     return (
       <>
         <h1>{`Song of id ${songId} inside collection ${collectionId}:`}</h1>
-        <LyricsDisplay lyrics={lyrics} />
+        <LyricsDisplay lyrics={lyrics} lang="original" />
+        <LyricsDisplay lyrics={lyrics} lang="translated" />
       </>
     )
   }
