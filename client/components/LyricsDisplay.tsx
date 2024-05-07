@@ -17,6 +17,8 @@ function LyricsDisplay({ lyrics, lang }: Props) {
   // 3. display the lyrics by mapping through the or array
   // using the index from the map method to to also display the tr array
   // 4. style these two lines differently
+  // 5. add state where user can choose how to display the data
+  // 6. implement these states
 
   return (
     <>
