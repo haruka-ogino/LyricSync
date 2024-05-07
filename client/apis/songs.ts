@@ -22,9 +22,8 @@ export async function getLyrics(
 }
 
 // collections/update/lyrics/:id
-export async function editLyrics(data: { lyrics: EditedLyrics; lang: string }) {
+export async function editLyrics(lyrics: EditedLyrics) {
   try {
-    const { lyrics } = data
     const { id } = lyrics
     const res = await request
       .patch(rootUrl + `/update/lyrics/${id}`)
