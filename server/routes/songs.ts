@@ -22,4 +22,34 @@ router.get('/:collectionId/:songId', async (req, res) => {
   }
 })
 
+router.patch('/update/lyrics/:id', async (req, res) => {
+  try {
+    const data = req.body
+
+    const id = Number(req.params.id)
+    const { originLyrics, originLang, translatedLyrics, transLang } = data
+
+    const newLyrics = {
+      id,
+      original_lyric: originLyrics,
+      original_lang: originLang,
+      trans_lyric: translatedLyrics,
+      trans_lang: transLang,
+    }
+
+    if (!newLyrics) {
+      return res.status(404).json({
+        message: 'Unable to edit lyrics',
+      })
+    }
+
+    const edited = await db.editLyrics(id, newLyrics)
+
+    res.status(200).json(edited)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
 export default router

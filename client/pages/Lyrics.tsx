@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useLyrics } from '../hooks/useSongs'
+import LyricsDisplay from '../components/LyricsDisplay'
 
 export default function Lyrics() {
   const { collectionId } = useParams()
@@ -27,14 +28,8 @@ export default function Lyrics() {
     return (
       <>
         <h1>{`Song of id ${songId} inside collection ${collectionId}:`}</h1>
-        <div>
-          <h2>{lyrics.originLang} Lyrics:</h2>
-          <p>{lyrics.originLyrics}</p>
-        </div>
-        <div>
-          <h2>{lyrics.transLang} Lyrics:</h2>
-          <p>{lyrics.translatedLyrics}</p>
-        </div>
+        <LyricsDisplay lyrics={lyrics} lang="original" />
+        <LyricsDisplay lyrics={lyrics} lang="translated" />
       </>
     )
   }

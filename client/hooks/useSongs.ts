@@ -1,10 +1,6 @@
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  MutationFunction,
-} from '@tanstack/react-query'
-import { getLyrics } from '../apis/songs.ts'
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { editLyrics, getLyrics } from '../apis/songs.ts'
+import { EditedLyrics } from '../../models/songs.ts'
 
 export function useLyrics(songId: number, collectionId: number) {
   return useQuery({
@@ -13,16 +9,10 @@ export function useLyrics(songId: number, collectionId: number) {
   })
 }
 
-export function useFruitsMutation<TData = unknown, TVariables = unknown>(
-  mutationFn: MutationFunction<TData, TVariables>,
-) {
-  const queryClient = useQueryClient()
-  const mutation = useMutation({
-    mutationFn,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['fruits'] })
-    },
+export function useEditLyrics() {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: (lyrics: EditedLyrics) => editLyrics(lyrics),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['lyrics'] }),
   })
-
-  return mutation
 }

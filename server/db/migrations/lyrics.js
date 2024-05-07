@@ -5,8 +5,8 @@
 export async function up(knex) {
   return knex.schema.createTable('lyrics', (table) => {
     table.increments('id').primary
-    table.string('original_lang').references('languages.id')
-    table.string('trans_lang').references('languages.id')
+    table.integer('original_lang').references('languages.id')
+    table.integer('trans_lang').references('languages.id')
     table.string('original_lyric')
     table.string('trans_lyric')
     table.boolean('romanisation')
