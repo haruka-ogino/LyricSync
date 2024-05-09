@@ -35,6 +35,7 @@ function EditLyrics({ lyrics, lang, setEditOr, setEditTr }: Props) {
             <label htmlFor="org-lyrics">Original Lyrics: </label>
             <br />
             <textarea
+              style={{ minWidth: '30em', minHeight: '40em' }}
               onChange={(e) =>
                 setNewLyrics({ ...newLyrics, originLyrics: e.target.value })
               }
@@ -50,6 +51,7 @@ function EditLyrics({ lyrics, lang, setEditOr, setEditTr }: Props) {
               <label htmlFor="trs-lyrics">Translated Lyrics: </label>
               <br />
               <textarea
+                style={{ minWidth: '30em', minHeight: '40em' }}
                 onChange={(e) =>
                   setNewLyrics({
                     ...newLyrics,
@@ -64,6 +66,7 @@ function EditLyrics({ lyrics, lang, setEditOr, setEditTr }: Props) {
             </>
           )
         )}
+        <br />
         <button type="submit">Update Lyrics</button>
       </form>
     </>
