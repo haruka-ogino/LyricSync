@@ -16,7 +16,7 @@ function LyricsDisplay({ lyrics, lang }: Props) {
       <>
         {lang === 'original' &&
           (!editOr ? (
-            <div>
+            <>
               <button onClick={() => setEditOr(true)}>Edit Original</button>
               <h2>{lyrics.originLang} Lyrics:</h2>
               <p
@@ -24,7 +24,7 @@ function LyricsDisplay({ lyrics, lang }: Props) {
                   __html: lyrics.originLyrics.replace(/\n/g, '<br>'),
                 }}
               />
-            </div>
+            </>
           ) : (
             <EditLyrics
               lyrics={lyrics}
@@ -38,7 +38,7 @@ function LyricsDisplay({ lyrics, lang }: Props) {
         {' '}
         {lang === 'translated' &&
           (!editTr ? (
-            <div>
+            <>
               <button onClick={() => setEditTr(true)}>Edit Translation</button>
               <h2>{lyrics.transLang} Lyrics:</h2>
               <p
@@ -46,7 +46,7 @@ function LyricsDisplay({ lyrics, lang }: Props) {
                   __html: lyrics.translatedLyrics.replace(/\n/g, '<br>'),
                 }}
               />
-            </div>
+            </>
           ) : (
             <EditLyrics
               lyrics={lyrics}
