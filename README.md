@@ -19,8 +19,11 @@ The project aims to consolidate knowledge in various areas including React compo
 ### MVP (Minimum Viable Product)
 
 CRUD Operations:
-* create, edit and delete collections
-* create, edit and delete songs and their respective lyrics
+* read, create, edit and delete collections
+* read, create, edit and delete songs and their respective lyrics
+* when reading lyrics, have different options of translation display:
+    - complete lyrics side by side
+    - line by line
 
 AUTH:
 * log in functionality
@@ -32,9 +35,7 @@ External APIs:
 ### Stretch Goals
 
 * drag-n-drop items in a collection
-* different options of translation display:
-    - complete lyrics side by side
-    - line by line
+* support romanisation for languages using a different alphabets/characters
 
 ## Installation - **From the command line**
 
