@@ -22,5 +22,11 @@ export async function seed(knex) {
       artist: 'Jung Kook',
       collection_id: 1,
     },
+    {
+      id: 4,
+      title: 'Moscas en la Casa',
+      artist: 'Shakira',
+      collection_id: 1,
+    },
   ])
 }

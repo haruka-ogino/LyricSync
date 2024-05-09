@@ -27,7 +27,8 @@ export default function Lyrics() {
   if (lyrics) {
     return (
       <>
-        <h1>{`Song of id ${songId} inside collection ${collectionId}:`}</h1>
+        <h1>{lyrics.songTitle}</h1>
+        <h2>{`Song of id ${songId} inside collection ${collectionId}:`}</h2>
         <LyricsDisplay lyrics={lyrics} lang="original" />
         <LyricsDisplay lyrics={lyrics} lang="translated" />
       </>
