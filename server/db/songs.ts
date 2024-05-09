@@ -1,5 +1,5 @@
 import db from './connection'
-import { Lyrics } from '../../models/songs'
+import { Lyrics, SongData } from '../../models/songs'
 
 export async function getLyrics(songId: number): Promise<Lyrics> {
   return db('lyrics')
@@ -34,4 +34,10 @@ interface EditedLyrics {
 }
 export async function editLyrics(id: number, editedLyrics: EditedLyrics) {
   return db('lyrics').where('id', id).update(editedLyrics)
+}
+
+export async function addSong(input: SongData) {
+  return await db('songs')
+    .join('collections', 'collections.id', 'songs.collection_id')
+    .insert(input)
 }

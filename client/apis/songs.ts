@@ -1,5 +1,6 @@
 import request from 'superagent'
-import { EditedLyrics, Lyrics } from '../../models/songs'
+import { EditedLyrics, Lyrics, SongData } from '../../models/songs'
+import { useParams } from 'react-router-dom'
 
 const rootUrl = '/api/v1/collections'
 
@@ -35,4 +36,9 @@ export async function editLyrics(lyrics: EditedLyrics) {
     console.error('Error editing lyrics.')
     throw new Error('Failed to edit lyrics. Please try again.')
   }
+}
+
+export async function addSong(input: SongData) {
+  const { collectionId } = input
+  await request.post(`${rootUrl}/${collectionId}`).send(input)
 }

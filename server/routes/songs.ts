@@ -52,4 +52,14 @@ router.patch('/update/lyrics/:id', async (req, res) => {
   }
 })
 
+router.post('/:collectionId', (req, res) => {
+  try {
+    const song = req.body
+    res.json(song)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
 export default router
