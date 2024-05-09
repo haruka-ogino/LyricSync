@@ -2,27 +2,16 @@ import { Router } from 'express'
 import * as db from '../db/songs'
 const router = Router()
 
-router.get('/:id', async (req, res) => {
-  const id = Number(req.params.id)
+router.get('/:collectionId', async (req, res) => {
+  const collectionId = Number(req.params.collectionId)
   try {
-    const collections = await db.getSongs(id)
+    const collections = await db.getSongsByCollection(collectionId)
     res.json(collections)
   } catch (error) {
     console.log(error)
     res.status(500).json({ message: 'Something went wrong' })
   }
 })
-
-// router.get('/songs', async (req, res) => {
-//   // const collectionId = Number(req.params.collectionId)
-//   try {
-//     const songs = db.getSongsByCollection()
-//     res.json(songs)
-//   } catch (error) {
-//     console.log(error)
-//     res.status(500).json({ message: 'Something went wrong' })
-//   }
-// })
 
 // getLyrics by songId
 router.get('/:collectionId/:songId', async (req, res) => {

@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { EditedLyrics, Lyrics, SongData } from '../../models/songs'
+import { EditedLyrics, Lyrics, Song, SongData } from '../../models/songs'
 import { useParams } from 'react-router-dom'
 
 const rootUrl = '/api/v1/collections'
@@ -35,6 +35,18 @@ export async function editLyrics(lyrics: EditedLyrics) {
   } catch (error) {
     console.error('Error editing lyrics.')
     throw new Error('Failed to edit lyrics. Please try again.')
+  }
+}
+
+export async function getSongs(collectionId: number) {
+  try {
+    const res = await request.get(`${rootUrl}/${collectionId}`)
+    return res.body as Song
+  } catch (error) {
+    console.log('Error getting songs in this collection')
+    throw new Error(
+      `Failed to get songs in ${collectionId} collection. Please try again.`,
+    )
   }
 }
 

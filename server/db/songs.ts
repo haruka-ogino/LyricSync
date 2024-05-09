@@ -1,8 +1,8 @@
 import db from './connection'
 import { Lyrics, Song, SongData } from '../../models/songs'
 
-export async function getSongs(id: number) {
-  const songs = await db('songs').where('songs.collection_id', id)
+export async function getSongsByCollection(collectionId: number) {
+  const songs = await db('songs').where('songs.collection_id', collectionId)
   return songs as Song[]
 }
 
