@@ -14,6 +14,15 @@ export async function getSongsByCollection(collectionId: number) {
     )
 }
 
+interface AddSong {
+  title: string
+  artist: string
+}
+export async function addSong(input: AddSong) {
+  return await db('songs').insert(input)
+  // .join('collections', 'collections.id', 'songs.collection_id')
+}
+
 export async function getLyrics(songId: number): Promise<Lyrics> {
   return db('lyrics')
     .where('song_id', songId)
@@ -47,10 +56,4 @@ interface EditedLyrics {
 }
 export async function editLyrics(id: number, editedLyrics: EditedLyrics) {
   return db('lyrics').where('id', id).update(editedLyrics)
-}
-
-export async function addSong(input: SongData) {
-  return await db('songs')
-    .join('collections', 'collections.id', 'songs.collection_id')
-    .insert(input)
 }

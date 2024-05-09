@@ -22,7 +22,7 @@ export default function AddSong() {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     mutation.mutate(formState)
-    navigate(`/${collectionId}`)
+    navigate(`/collections/${collectionId}`)
   }
   return (
     <>

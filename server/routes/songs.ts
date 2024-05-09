@@ -13,6 +13,16 @@ router.get('/:collectionId', async (req, res) => {
   }
 })
 
+router.post('/:collectionId', async (req, res) => {
+  try {
+    const song = req.body
+    await db.addSong(song)
+    res.status(201)
+  } catch (error) {
+    res.status(500)
+  }
+})
+
 // getLyrics by songId
 router.get('/:collectionId/:songId', async (req, res) => {
   try {
@@ -57,16 +67,6 @@ router.patch('/update/lyrics/:id', async (req, res) => {
     const edited = await db.editLyrics(id, newLyrics)
 
     res.status(200).json(edited)
-  } catch (error) {
-    console.log(error)
-    res.status(500).json({ message: 'Something went wrong' })
-  }
-})
-
-router.post('/:collectionId', (req, res) => {
-  try {
-    const song = req.body
-    res.json(song)
   } catch (error) {
     console.log(error)
     res.status(500).json({ message: 'Something went wrong' })
