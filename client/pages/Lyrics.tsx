@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useLyrics } from '../hooks/useSongs'
 import LyricsDisplay from '../components/LyricsDisplay'
 import { useState } from 'react'
+import LyricsInLine from '../components/LyricsInLine'
 
 export default function Lyrics() {
   const { collectionId } = useParams()
@@ -46,6 +47,7 @@ export default function Lyrics() {
               show lyrics side by side
             </button>
             <p>this should be the only thing showing</p>
+            <LyricsInLine lyrics={lyrics} />
           </>
         )}
       </>
