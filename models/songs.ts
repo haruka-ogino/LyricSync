@@ -46,3 +46,8 @@ export interface SongData {
 export interface Song extends SongData {
   id: number
 }
+
+export interface AddSong {
+  title: string
+  artist: string
+}

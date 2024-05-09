@@ -5,7 +5,7 @@ import {
   getLyrics,
   getSongsByCollection,
 } from '../apis/songs.ts'
-import { EditedLyrics, SongData } from '../../models/songs.ts'
+import { AddSong, EditedLyrics, SongData } from '../../models/songs.ts'
 
 export function useLyrics(songId: number, collectionId: number) {
   return useQuery({

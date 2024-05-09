@@ -14,7 +14,11 @@ export async function getSongsByCollection(collectionId: number) {
     )
 }
 
-export async function addSong(input: SongData) {
+interface AddSong {
+  title: string
+  artist: string
+}
+export async function addSong(input: AddSong) {
   return await db('songs').insert(input)
 }
 

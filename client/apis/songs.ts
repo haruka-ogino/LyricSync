@@ -1,5 +1,12 @@
 import request from 'superagent'
-import { EditedLyrics, Lyrics, Song, SongData } from '../../models/songs'
+import {
+  AddSong,
+  EditedLyrics,
+  Lyrics,
+  Song,
+  SongData,
+} from '../../models/songs'
+import { useParams } from 'react-router-dom'
 
 const rootUrl = '/api/v1/collections'
 
@@ -55,6 +62,7 @@ export async function getSongsByCollection(collectionId: number) {
 }
 
 export async function addSong(input: SongData) {
-  const { collectionId } = input
-  await request.post(`${rootUrl}/${collectionId}`).send(input)
+  const data = { title: input.title, artist: input.artist }
+  const collectionId = input.collectionId
+  await request.post(`${rootUrl}/${collectionId}`).send(data)
 }
