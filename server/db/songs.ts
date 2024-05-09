@@ -14,13 +14,8 @@ export async function getSongsByCollection(collectionId: number) {
     )
 }
 
-interface AddSong {
-  title: string
-  artist: string
-}
-export async function addSong(input: AddSong) {
+export async function addSong(input: SongData) {
   return await db('songs').insert(input)
-  // .join('collections', 'collections.id', 'songs.collection_id')
 }
 
 export async function getLyrics(songId: number): Promise<Lyrics> {
