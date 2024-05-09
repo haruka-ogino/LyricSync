@@ -37,7 +37,9 @@ export default function LyricsInLine({ lyrics }: Props) {
         line !== 'space' ? (
           <>
             <p>{line}</p>
-            <p>{translatedArr[index]}</p>
+            <p style={{ fontStyle: 'italic', margin: '5px 0px 10px 15px' }}>
+              {translatedArr[index]}
+            </p>
           </>
         ) : (
           // eslint-disable-next-line react/jsx-key
