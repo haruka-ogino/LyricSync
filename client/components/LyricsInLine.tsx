@@ -33,6 +33,17 @@ export default function LyricsInLine({ lyrics }: Props) {
   return (
     <>
       <h1>In-line lyrics</h1>
+      {originalArr.map((line, index) =>
+        line !== 'space' ? (
+          <>
+            <p>{line}</p>
+            <p>{translatedArr[index]}</p>
+          </>
+        ) : (
+          // eslint-disable-next-line react/jsx-key
+          <br />
+        ),
+      )}
     </>
   )
 }
