@@ -13,9 +13,6 @@ export default function Songs() {
   }
 
   if (data) {
-    console.log(data[0].collectionId)
-    console.log(data)
-
     return (
       <>
         <h1>{`Songs inside collection ${collectionId}:`}</h1>

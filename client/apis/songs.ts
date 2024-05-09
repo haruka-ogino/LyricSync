@@ -1,6 +1,5 @@
 import request from 'superagent'
 import { EditedLyrics, Lyrics, Song, SongData } from '../../models/songs'
-import { useParams } from 'react-router-dom'
 
 const rootUrl = '/api/v1/collections'
 
@@ -38,10 +37,15 @@ export async function editLyrics(lyrics: EditedLyrics) {
   }
 }
 
+interface Songs extends Song {
+  collectionName: string
+  collectionId: number
+}
+
 export async function getSongsByCollection(collectionId: number) {
   try {
     const res = await request.get(`${rootUrl}/${collectionId}`)
-    return res.body as Song[]
+    return res.body as Songs[]
   } catch (error) {
     console.log('Error getting songs in this collection')
     throw new Error(

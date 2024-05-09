@@ -1,5 +1,5 @@
 import db from './connection'
-import { Lyrics, Song, SongData } from '../../models/songs'
+import { Lyrics, SongData } from '../../models/songs'
 
 export async function getSongsByCollection(collectionId: number) {
   return await db('songs')
@@ -12,7 +12,6 @@ export async function getSongsByCollection(collectionId: number) {
       'songs.collection_id as collectionId',
       'collections.name as collectionName',
     )
-  // return songs as Song[]
 }
 
 export async function getLyrics(songId: number): Promise<Lyrics> {
