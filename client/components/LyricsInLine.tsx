@@ -36,7 +36,7 @@ export default function LyricsInLine({ lyrics }: Props) {
       {originalArr.map((line, index) =>
         line !== 'space' ? (
           <>
-            <p>{line}</p>
+            <p style={{ margin: '0px' }}>{line}</p>
             <p style={{ fontStyle: 'italic', margin: '5px 0px 10px 15px' }}>
               {translatedArr[index]}
             </p>
