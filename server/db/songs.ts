@@ -1,5 +1,10 @@
 import db from './connection'
-import { Lyrics, SongData } from '../../models/songs'
+import { Lyrics, Song, SongData } from '../../models/songs'
+
+export async function getSongs(id: number) {
+  const songs = await db('songs').where('songs.collection_id', id)
+  return songs as Song[]
+}
 
 export async function getLyrics(songId: number): Promise<Lyrics> {
   return db('lyrics')
