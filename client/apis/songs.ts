@@ -38,7 +38,7 @@ export async function editLyrics(lyrics: EditedLyrics) {
   }
 }
 
-export async function getSongs(collectionId: number) {
+export async function getSongsByCollection(collectionId: number) {
   try {
     const res = await request.get(`${rootUrl}/${collectionId}`)
     return res.body as Song
