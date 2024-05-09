@@ -19,7 +19,9 @@ function Collections() {
         <ul>
           {data.map((collection, i) => (
             <li key={i}>
-              <Link to={`/${collection.id}`}>{collection.name}</Link>
+              <Link to={`/collections/${collection.id}`}>
+                {collection.name}
+              </Link>
               <Delete id={collection.id} />
             </li>
           ))}

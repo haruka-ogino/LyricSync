@@ -2,8 +2,17 @@ import db from './connection'
 import { Lyrics, Song, SongData } from '../../models/songs'
 
 export async function getSongsByCollection(collectionId: number) {
-  const songs = await db('songs').where('songs.collection_id', collectionId)
-  return songs as Song[]
+  return await db('songs')
+    .where('songs.collection_id', collectionId)
+    .join('collections', 'songs.collection_id', 'collections.id')
+    .select(
+      'songs.id as id',
+      'songs.title as title',
+      'songs.artist as artist',
+      'songs.collection_id as collectionId',
+      'collections.name as collectionName',
+    )
+  // return songs as Song[]
 }
 
 export async function getLyrics(songId: number): Promise<Lyrics> {

@@ -41,7 +41,7 @@ export async function editLyrics(lyrics: EditedLyrics) {
 export async function getSongsByCollection(collectionId: number) {
   try {
     const res = await request.get(`${rootUrl}/${collectionId}`)
-    return res.body as Song
+    return res.body as Song[]
   } catch (error) {
     console.log('Error getting songs in this collection')
     throw new Error(
