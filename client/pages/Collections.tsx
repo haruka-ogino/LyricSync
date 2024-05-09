@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Delete from '../components/Delete'
 import { useCollections } from '../hooks/useCollections'
 
@@ -18,7 +19,7 @@ function Collections() {
         <ul>
           {data.map((collection, i) => (
             <li key={i}>
-              {collection.name}
+              <Link to={`/${collection.id}`}>{collection.name}</Link>
               <Delete id={collection.id} />
             </li>
           ))}
