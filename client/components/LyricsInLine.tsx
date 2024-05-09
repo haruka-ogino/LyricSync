@@ -9,10 +9,10 @@ export default function LyricsInLine({ lyrics }: Props) {
   // console.log(lyrics.translatedLyrics)
   // console.log(lyrics.originLyrics)
 
-  const newTraLyrics = lyrics.translatedLyrics.replace(/\n\n/g, '\nspace\n')
+  const newTraLyrics = lyrics.translatedLyrics.replace(/\n\n/g, '\n \n')
   // console.log(newTraLyrics)
 
-  const newOriLyrics = lyrics.originLyrics.replace(/\n\n/g, '\nspace\n')
+  const newOriLyrics = lyrics.originLyrics.replace(/\n\n/g, '\n \n')
   // console.log(newOriLyrics)
 
   // 2. make an array for each set or lyrics (or and tr)
@@ -34,7 +34,7 @@ export default function LyricsInLine({ lyrics }: Props) {
     <>
       <h1>In-line lyrics</h1>
       {originalArr.map((line, index) =>
-        line !== 'space' ? (
+        line !== ' ' ? (
           <>
             <p style={{ margin: '0px' }}>{line}</p>
             <p style={{ fontStyle: 'italic', margin: '5px 0px 10px 15px' }}>
