@@ -10,6 +10,8 @@ interface Props {
 function LyricsDisplay({ lyrics, lang }: Props) {
   const [editOr, setEditOr] = useState(false)
   const [editTr, setEditTr] = useState(false)
+  const [inLine, setInLine] = useState(false)
+
   // to display line by line,
   // 1. find \n\n and replace it with '\nspace\n'
   // 2. make an array for each set or lyrics (or and tr)
