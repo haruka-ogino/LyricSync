@@ -12,7 +12,7 @@ function LyricsDisplay({ lyrics, lang }: Props) {
   const [editTr, setEditTr] = useState(false)
 
   return (
-    <>
+    <div className="lyrics-single">
       <>
         {lang === 'original' &&
           (!editOr ? (
@@ -56,7 +56,7 @@ function LyricsDisplay({ lyrics, lang }: Props) {
             />
           ))}
       </>
-    </>
+    </div>
   )
 }
 

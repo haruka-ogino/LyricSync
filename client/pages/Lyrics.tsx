@@ -3,6 +3,7 @@ import { useLyrics } from '../hooks/useSongs'
 import LyricsDisplay from '../components/LyricsDisplay'
 import { useState } from 'react'
 import LyricsInLine from '../components/LyricsInLine'
+import '../styles/lyrics.css'
 
 export default function Lyrics() {
   const { collectionId } = useParams()
@@ -38,8 +39,10 @@ export default function Lyrics() {
             <button onClick={() => setInLine(true)}>
               show lyrics line by line
             </button>
-            <LyricsDisplay lyrics={lyrics} lang="original" />
-            <LyricsDisplay lyrics={lyrics} lang="translated" />
+            <div className="lyrics">
+              <LyricsDisplay lyrics={lyrics} lang="original" />
+              <LyricsDisplay lyrics={lyrics} lang="translated" />
+            </div>
           </>
         ) : (
           <>
