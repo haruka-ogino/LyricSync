@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useLyrics } from '../hooks/useSongs'
 import LyricsDisplay from '../components/LyricsDisplay'
+import { useState } from 'react'
 
 export default function Lyrics() {
   const { collectionId } = useParams()
@@ -18,6 +19,8 @@ export default function Lyrics() {
     collection = 1
   }
 
+  const [inLine, setInLine] = useState(false)
+
   const { data: lyrics, isLoading, isError } = useLyrics(song, collection)
 
   if (isLoading) return <h1>Loading song...</h1>
@@ -29,8 +32,22 @@ export default function Lyrics() {
       <>
         <h1>{lyrics.songTitle}</h1>
         <h2>{`Song of id ${songId} inside collection ${collectionId}:`}</h2>
-        <LyricsDisplay lyrics={lyrics} lang="original" />
-        <LyricsDisplay lyrics={lyrics} lang="translated" />
+        {!inLine ? (
+          <>
+            <button onClick={() => setInLine(true)}>
+              show lyrics line by line
+            </button>
+            <LyricsDisplay lyrics={lyrics} lang="original" />
+            <LyricsDisplay lyrics={lyrics} lang="translated" />
+          </>
+        ) : (
+          <>
+            <button onClick={() => setInLine(false)}>
+              show lyrics side by side
+            </button>
+            <p>this should be the only thing showing</p>
+          </>
+        )}
       </>
     )
   }
