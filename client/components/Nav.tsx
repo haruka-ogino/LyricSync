@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import '../styles/nav.css'
 import { useRef } from 'react'
+import { FaBars, FaTimes } from 'react-icons/fa'
 
 export default function Nav() {
   // const isMobile = window.innerWidth <= 768
@@ -26,10 +27,16 @@ export default function Nav() {
         <Link to="collections/X/add-song">
           <h2>Add Song to Collection X</h2>
         </Link>
+        <button>
+          <FaTimes />
+        </button>
       </nav>
       {/* ) : (
         <p></p>
       )} */}
+      <button>
+        <FaBars />
+      </button>
     </>
   )
 }
