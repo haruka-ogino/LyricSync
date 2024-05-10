@@ -9,3 +9,14 @@ nav {
   padding: 0em 1em;
   margin-top: 0em;
 }
+
+.navbar-mobile {
+  border: 2px dashed green;
+  width: 20em;
+  /* left: 0em;
+  top: 0em; */
+  /* height: 98vh; */
+  background-color: #fff;
+  /* padding: 0em 1em;
+  margin-top: 0em; */
+}
