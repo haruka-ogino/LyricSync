@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom'
 import '../styles/nav.css'
+import { useRef } from 'react'
 
 export default function Nav() {
-  const isMobile = window.innerWidth <= 768
+  // const isMobile = window.innerWidth <= 768
+
+  const navRef = useRef(null)
 
   return (
     <>
       {/* {isMobile ? ( */}
-      <nav className={isMobile ? 'navbar-mobile' : 'navbar'}>
+      <nav ref={navRef}>
         <Link to="collections">
           <h2>My Collections</h2>
         </Link>

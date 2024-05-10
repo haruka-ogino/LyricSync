@@ -1,10 +1,13 @@
 import { Outlet } from 'react-router-dom'
 import Nav from './Nav'
+import React from 'react'
 
 export default function Layout() {
   return (
     <>
-      <Nav />
+      <React.Fragment>
+        <Nav />
+      </React.Fragment>
       <header>
         <h1>LyricSync</h1>
       </header>
