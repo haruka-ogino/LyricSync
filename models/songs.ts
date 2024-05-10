@@ -36,3 +36,18 @@ export interface EditedLyrics {
   translatedLang: number
   translatedLyrics: string
 }
+
+export interface SongData {
+  title: string
+  artist: string
+  collectionId: number
+}
+
+export interface Song extends SongData {
+  id: number
+}
+
+export interface AddSong {
+  title: string
+  artist: string
+}

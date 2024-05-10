@@ -2,6 +2,27 @@ import { Router } from 'express'
 import * as db from '../db/songs'
 const router = Router()
 
+router.get('/:collectionId', async (req, res) => {
+  const collectionId = Number(req.params.collectionId)
+  try {
+    const collections = await db.getSongsByCollection(collectionId)
+    res.json(collections)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
+router.post('/:collectionId', async (req, res) => {
+  try {
+    const input = req.body
+    await db.addSong(input)
+    res.status(201)
+  } catch (error) {
+    res.status(500)
+  }
+})
+
 // getLyrics by songId
 router.get('/:collectionId/:songId', async (req, res) => {
   try {
