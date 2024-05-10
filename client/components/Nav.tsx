@@ -6,7 +6,13 @@ import { FaBars, FaTimes } from 'react-icons/fa'
 export default function Nav() {
   // const isMobile = window.innerWidth <= 768
 
-  const navRef = useRef(null)
+  const navRef = useRef<HTMLDivElement>(null)
+
+  function showNavBar() {
+    if (navRef.current) {
+      navRef.current.classList.toggle('responsive_nav')
+    }
+  }
 
   return (
     <>
@@ -27,14 +33,11 @@ export default function Nav() {
         <Link to="collections/X/add-song">
           <h2>Add Song to Collection X</h2>
         </Link>
-        <button>
+        <button onClick={showNavBar}>
           <FaTimes />
         </button>
       </nav>
-      {/* ) : (
-        <p></p>
-      )} */}
-      <button>
+      <button onClick={showNavBar}>
         <FaBars />
       </button>
     </>
