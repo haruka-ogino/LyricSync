@@ -5,9 +5,6 @@ export default function Layout() {
   return (
     <>
       <Nav />
-      <header>
-        <h1>LyricSync</h1>
-      </header>
       <main>
         <Outlet />
       </main>
