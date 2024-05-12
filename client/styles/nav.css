@@ -1,15 +1,42 @@
 nav {
   /* border: 2px solid red; */
   position: fixed;
-  width: 20em;
+  width: 350px;
   left: 0em;
   top: 0em;
   height: 98vh;
-  background-color: #fff;
+  background-color: #000;
+  color: #fff;
   padding: 0em 1em;
   margin-top: 0em;
+  font-style: italic;
+  font-size: 23px;
 }
 
 .logo {
   width: 100%;
+  padding: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: linear-gradient(135deg, rgb(27, 226, 218), rgb(103, 126, 235));
+  border: none;
+  color: #fff; /* 텍스트 색상을 버튼에 어울리는 색으로 */
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  filter: brightness(1.2); /* 호버 시 밝기 증가 */
+}
+
+ul {
+  list-style-type: none;
 }
