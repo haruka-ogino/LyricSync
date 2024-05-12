@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import '../styles/nav.css'
 import { useState } from 'react'
 import { useCollections } from '../hooks/useCollections'
+import logo from '../styles/images/LyricSync-logo-C.png'
 
 export default function Nav() {
   const [isShow, setIsShow] = useState(false)
@@ -13,6 +14,7 @@ export default function Nav() {
 
   return (
     <nav>
+      <img src={logo} alt="logo" className="logo" />
       <Link to="collections">
         <h2>My Collections</h2>
       </Link>
