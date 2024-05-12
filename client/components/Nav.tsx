@@ -21,7 +21,7 @@ export default function Nav() {
         {isShow && (
           <ul>
             {data?.map((collection) => (
-              <li key={collection.id} className="list">
+              <li key={collection.id} className="collection-list">
                 <Link to={`/collections/${collection.id}`}>
                   {collection.name}
                 </Link>

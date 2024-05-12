@@ -1,5 +1,4 @@
 nav {
-  /* border: 2px solid red; */
   position: fixed;
   width: 350px;
   left: 0em;
@@ -15,7 +14,7 @@ nav {
 
 .logo {
   width: 100%;
-  padding: 0.5rem;
+  padding: 1rem 0.5rem;
 }
 
 a {
@@ -26,7 +25,7 @@ a {
 button {
   background: linear-gradient(135deg, rgb(27, 226, 218), rgb(103, 126, 235));
   border: none;
-  color: #fff; /* 텍스트 색상을 버튼에 어울리는 색으로 */
+  color: #fff;
   padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
@@ -34,9 +33,13 @@ button {
 }
 
 button:hover {
-  filter: brightness(1.2); /* 호버 시 밝기 증가 */
+  filter: brightness(1.2);
 }
 
 ul {
   list-style-type: none;
+}
+
+.collection-list {
+  font-size: 0.8em;
 }
