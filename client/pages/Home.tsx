@@ -26,6 +26,9 @@ export default function Home() {
               <Delete id={collection.id} />
             </li>
           ))}
+          <Link to="/collections/new-collection">
+            <li>+</li>
+          </Link>
         </ul>
       </>
     )
