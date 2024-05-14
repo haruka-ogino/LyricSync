@@ -1,24 +1,38 @@
 import { Link } from 'react-router-dom'
 import '../styles/nav.css'
+import { useState } from 'react'
+import { useCollections } from '../hooks/useCollections'
+import logo from '../styles/images/LyricSync-logo-B.png'
 
 export default function Nav() {
+  const [isShow, setIsShow] = useState(false)
+  const { data } = useCollections()
+
+  function handleClick() {
+    setIsShow(!isShow)
+  }
+
   return (
     <nav>
-      <Link to="collections">
-        <h2>My Collections</h2>
-      </Link>
-      <Link to="collections/X">
-        <h2>My Songs from Collection X</h2>
-      </Link>
-      <Link to="collections/1/1">
-        <h2>My Lyrics from Song Y</h2>
-      </Link>
-      <Link to="collections/new-collection">
-        <h2>Create a New Collection</h2>
-      </Link>
-      <Link to="collections/1/add-song">
-        <h2>Add Song to Collection X</h2>
-      </Link>
+      <img src={logo} alt="logo" className="logo" />
+      <div>
+        <Link to="collections">My Collections </Link>
+        <button onClick={handleClick}>{isShow ? '▲' : '▼'}</button>
+        {isShow && (
+          <ul>
+            {data?.map((collection) => (
+              <li key={collection.id} className="collection-list">
+                <Link to={`/collections/${collection.id}`}>
+                  {collection.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <div>
+        <Link to="collections/new-collection">Create a New Collection</Link>
+      </div>
     </nav>
   )
 }

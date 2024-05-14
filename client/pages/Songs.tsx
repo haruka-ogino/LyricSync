@@ -16,6 +16,9 @@ export default function Songs() {
     return (
       <>
         <h1>{`Songs inside collection ${collectionId}:`}</h1>
+        <Link to={`/collections/${collectionId}/add-song`}>
+          <button>Add Song</button>
+        </Link>
         <ul>
           {data.map((song) => (
             <li key={song.id}>
