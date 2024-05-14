@@ -1,13 +1,16 @@
+ul {
+  display: flex;
+}
+
 li {
   display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: black;
   color: white;
-  display: inline-block;
   width: 250px;
   height: 250px;
   border: 1px solid white;
   border-radius: 10px;
   font-size: 30px;
-  text-align: center;
-  align-items: center;
 }
