@@ -22,7 +22,7 @@ function NewCollection() {
   }
   return (
     <>
-      <h1>New collection</h1>
+      <p className="page-title">New collection</p>
       <form onSubmit={handleSubmit}>
         <input
           name="name"

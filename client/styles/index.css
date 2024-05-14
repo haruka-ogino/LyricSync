@@ -2,3 +2,9 @@ html {
   position: relative;
   left: 25em;
 }
+
+.page-title {
+  font-size: 45px;
+  font-weight: 800;
+  font-style: italic;
+}

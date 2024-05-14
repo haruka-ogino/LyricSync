@@ -15,7 +15,7 @@ export default function Home() {
   if (data) {
     return (
       <>
-        <h1>Collections</h1>
+        <p className="page-title">Collections</p>
         <ul>
           {data.map((collection, i) => (
             <li key={i}>
