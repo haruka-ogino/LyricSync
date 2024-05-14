@@ -3,6 +3,10 @@ html {
   left: 25em;
 }
 
+ul {
+  list-style-type: none;
+}
+
 .page-title {
   padding-left: 40px;
   font-size: 45px;

@@ -9,12 +9,13 @@ li {
   align-items: center;
   background-color: black;
   color: white;
-  width: 250px;
-  height: 250px;
+  width: 230px;
+  height: 230px;
   border-radius: 10px;
   font-size: 30px;
   margin: 10px;
   border: none;
+  padding: 10px;
 }
 
 li::before {
