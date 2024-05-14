@@ -14,7 +14,9 @@ export default function Nav() {
 
   return (
     <nav>
-      <img src={logo} alt="logo" className="logo" />
+      <Link to="/">
+        <img src={logo} alt="logo" className="logo" />
+      </Link>
       <div>
         <Link to="collections">My Collections </Link>
         <button onClick={handleClick}>{isShow ? '▲' : '▼'}</button>
