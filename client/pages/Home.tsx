@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import '../styles/home.css'
 import { useCollections } from '../hooks/useCollections'
-import Delete from '../components/Delete'
 
 export default function Home() {
   const { data, isLoading, isError } = useCollections()

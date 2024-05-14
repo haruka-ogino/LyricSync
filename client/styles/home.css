@@ -3,6 +3,7 @@ ul {
 }
 
 li {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +11,20 @@ li {
   color: white;
   width: 250px;
   height: 250px;
-  border: 1px solid white;
   border-radius: 10px;
   font-size: 30px;
+  margin: 10px;
+  border: none;
+}
+
+li::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(to right, rgb(27, 226, 218), rgb(103, 126, 235));
+  border-radius: 15px;
 }
