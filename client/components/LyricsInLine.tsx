@@ -15,12 +15,17 @@ export default function LyricsInLine({ lyrics }: Props) {
       <h1>In-line lyrics</h1>
       {originalArr.map((line, index) =>
         line !== ' ' ? (
-          <>
-            <p style={{ margin: '0px' }}>{line}</p>
-            <p style={{ fontStyle: 'italic', margin: '5px 0px 10px 15px' }}>
+          <div key={index}>
+            <p data-testid="original" style={{ margin: '0px' }}>
+              {line}
+            </p>
+            <p
+              data-testid="translated"
+              style={{ fontStyle: 'italic', margin: '5px 0px 10px 15px' }}
+            >
               {translatedArr[index]}
             </p>
-          </>
+          </div>
         ) : (
           // eslint-disable-next-line react/jsx-key
           <br />
