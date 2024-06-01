@@ -36,10 +36,7 @@ button:hover {
   filter: brightness(1.2);
 }
 
-ul {
-  list-style-type: none;
-}
-
 .collection-list {
   font-size: 0.8em;
+  height: 1em;
 }

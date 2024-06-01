@@ -8,7 +8,7 @@ export interface Lyrics {
   transLangId: number
   originLyrics: string
   translatedLyrics: string
-  romanisation: string
+  romanisation: boolean
   romanisedLyrics: string
   collectionId: number
 }

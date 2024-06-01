@@ -14,7 +14,9 @@ export default function Nav() {
 
   return (
     <nav>
-      <img src={logo} alt="logo" className="logo" />
+      <Link to="/">
+        <img src={logo} alt="logo" className="logo" />
+      </Link>
       <div>
         <h2>
           <Link to="collections">My Collections</Link>
