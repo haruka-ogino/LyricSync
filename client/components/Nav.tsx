@@ -18,12 +18,21 @@ export default function Nav() {
         <img src={logo} alt="logo" className="logo" />
       </Link>
       <div>
-        <Link to="collections">My Collections </Link>
-        <button onClick={handleClick}>{isShow ? '▲' : '▼'}</button>
+        <h2>
+          <Link to="collections">My Collections</Link>
+        </h2>
+        <button id="button" onClick={handleClick} data-testid="button">
+          {isShow ? '▲' : '▼'}
+        </button>
         {isShow && (
           <ul>
             {data?.map((collection) => (
-              <li key={collection.id} className="collection-list">
+              <li
+                id={String(collection.id)}
+                key={collection.id}
+                className="collection-list"
+                data-testid={collection.id}
+              >
                 <Link to={`/collections/${collection.id}`}>
                   {collection.name}
                 </Link>
