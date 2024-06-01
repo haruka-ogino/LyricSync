@@ -59,4 +59,13 @@ describe('Nav', () => {
     // Assert
     expect(lyrics.textContent).toContain('Mis días sin ti son tan oscuros')
   })
+
+  it('displays the correct translated lyrics', () => {
+    setUp()
+
+    // Act
+    const lyrics = screen.getByTestId('translated-1')
+    // Assert
+    expect(lyrics.textContent).toContain('my days without you.')
+  })
 })
