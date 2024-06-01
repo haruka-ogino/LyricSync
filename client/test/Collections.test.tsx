@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { screen } from '@testing-library/react'
 import Collections from '../pages/Collections'
+import { renderWithRouterAndQueryClient } from './setup'
 
 describe('Collections', () => {
   function setUp() {
