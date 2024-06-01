@@ -1,10 +1,9 @@
 // @vitest-environment jsdom
 import { describe, it, expect } from 'vitest'
 import nock from 'nock'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Collections from '../pages/Collections'
-import { RouterProvider, createMemoryRouter } from 'react-router-dom'
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithRouterAndQueryClient } from './setup'
 
 export function testData() {
   return [
@@ -23,20 +22,8 @@ export function testData() {
 
 describe('Collections', () => {
   function setUp() {
-    // Create a QueryClient instance
-    const queryClient = new QueryClient()
-
-    // Arrange
     const routes = [{ path: '/', element: <Collections /> }]
-    const router = createMemoryRouter(routes, {
-      initialEntries: ['/'],
-    })
-
-    render(
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>,
-    )
+    renderWithRouterAndQueryClient(routes)
   }
 
   it('Is visible on the home page', async () => {
