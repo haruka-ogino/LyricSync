@@ -39,14 +39,6 @@ describe('Collections', () => {
     )
   }
 
-  // it.skip('displays the correct heading', async () => {
-
-  //   // Act
-  //   const currentHeading = screen.getByRole('heading', { level: 1 })
-  //   // Assert
-  //   expect(currentHeading.textContent).toBe('Collections')
-  // })
-
   it('Is visible on the home page', async () => {
     setUp()
     const scope = nock('http://localhost')
