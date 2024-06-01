@@ -1,26 +1,13 @@
 import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { RouterProvider, createMemoryRouter } from 'react-router-dom'
 import Nav from '../components/Nav.tsx'
+import { renderWithRouterAndQueryClient } from './setup.tsx'
 
 describe('Nav', () => {
   function setUp() {
-    // Create a QueryClient instance
-    const queryClient = new QueryClient()
-
-    // Arrange
     const routes = [{ path: '/', element: <Nav /> }]
-    const router = createMemoryRouter(routes, {
-      initialEntries: ['/'],
-    })
-
-    render(
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>,
-    )
+    renderWithRouterAndQueryClient(routes)
   }
 
   it('displays the correct heading', () => {

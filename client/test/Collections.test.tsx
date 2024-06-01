@@ -1,25 +1,12 @@
 import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { RouterProvider, createMemoryRouter } from 'react-router-dom'
+import { screen } from '@testing-library/react'
 import Collections from '../pages/Collections'
+import { renderWithRouterAndQueryClient } from './setup'
 
 describe('Collections', () => {
   function setUp() {
-    // Create a QueryClient instance
-    const queryClient = new QueryClient()
-
-    // Arrange
     const routes = [{ path: '/', element: <Collections /> }]
-    const router = createMemoryRouter(routes, {
-      initialEntries: ['/'],
-    })
-
-    render(
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>,
-    )
+    renderWithRouterAndQueryClient(routes)
   }
 
   it.skip('displays the correct heading', async () => {
