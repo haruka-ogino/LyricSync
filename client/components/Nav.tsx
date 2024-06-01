@@ -19,16 +19,26 @@ export default function Nav() {
         <h2>
           <Link to="collections">My Collections</Link>
         </h2>
-        <button onClick={handleClick}>{isShow ? '▲' : '▼'}</button>
+        <button id="button" onClick={handleClick}>
+          {isShow ? '▲' : '▼'}
+        </button>
         {isShow && (
           <ul>
-            {data?.map((collection) => (
-              <li key={collection.id} className="collection-list">
+            {/* {data?.map((collection) => (
+              <li
+                id={String(collection.id)}
+                key={collection.id}
+                className="collection-list"
+                data-testid={collection.id}
+              >
                 <Link to={`/collections/${collection.id}`}>
                   {collection.name}
                 </Link>
               </li>
-            ))}
+            ))} */}
+            <li id={'0'} className="collection-list" data-testid="0">
+              <Link to={`/collections/0`}>favorite</Link>
+            </li>
           </ul>
         )}
       </div>
