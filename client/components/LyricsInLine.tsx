@@ -15,8 +15,8 @@ export default function LyricsInLine({ lyrics }: Props) {
       <h1>In-line lyrics</h1>
       {originalArr.map((line, index) =>
         line !== ' ' ? (
-          <div key={index}>
-            <p data-testid="original" style={{ margin: '0px' }}>
+          <div key={index} data-testid="original">
+            <p data-testid={index} style={{ margin: '0px' }}>
               {line}
             </p>
             <p

@@ -42,12 +42,21 @@ describe('Nav', () => {
     collectionId: 1,
   }
 
-  it('displays the correct original lyrics', () => {
+  it('displays the correct heading', () => {
     setUp()
 
     // Act
     const currentHeading = screen.getByRole('heading', { level: 1 })
     // Assert
     expect(currentHeading.textContent).toContain('lyrics')
+  })
+
+  it('displays the correct original lyrics', () => {
+    setUp()
+
+    // Act
+    const lyrics = screen.getByTestId('0')
+    // Assert
+    expect(lyrics.textContent).toContain('Mis días sin ti son tan oscuros')
   })
 })
