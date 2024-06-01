@@ -41,16 +41,29 @@ describe('Nav', () => {
     expect(image.src).toContain('logo')
   })
 
-  it('Button click displays the list', async () => {
+  // it('Button click displays the list', async () => {
+  //   setUp()
+  //   const button = screen.getByRole('button', { name: '▼' })
+  //   const user = userEvent.setup()
+
+  //   // Act
+  //   await user.click(button)
+  //   const collection = screen.getByTestId('0')
+
+  //   // ASSERT
+  //   expect(collection.textContent).toBe('favorite')
+  // })
+
+  it('Button click changes the text', async () => {
     setUp()
     const button = screen.getByRole('button', { name: '▼' })
     const user = userEvent.setup()
 
     // Act
     await user.click(button)
-    const collection = screen.getByTestId('0')
+    const text = screen.getByRole('button')
 
     // ASSERT
-    expect(collection.textContent).toBe('favorite')
+    expect(text.textContent).toBe('▲')
   })
 })

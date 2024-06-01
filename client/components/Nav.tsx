@@ -19,12 +19,12 @@ export default function Nav() {
         <h2>
           <Link to="collections">My Collections</Link>
         </h2>
-        <button id="button" onClick={handleClick}>
+        <button id="button" onClick={handleClick} data-testid="button">
           {isShow ? '▲' : '▼'}
         </button>
         {isShow && (
           <ul>
-            {/* {data?.map((collection) => (
+            {data?.map((collection) => (
               <li
                 id={String(collection.id)}
                 key={collection.id}
@@ -35,10 +35,7 @@ export default function Nav() {
                   {collection.name}
                 </Link>
               </li>
-            ))} */}
-            <li id={'0'} className="collection-list" data-testid="0">
-              <Link to={`/collections/0`}>favorite</Link>
-            </li>
+            ))}
           </ul>
         )}
       </div>
