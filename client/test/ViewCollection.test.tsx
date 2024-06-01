@@ -45,7 +45,7 @@ describe('Collections', () => {
       .get('/api/v1/collections')
       .reply(200, testData())
 
-    const link = await screen.findByRole('link', { name: /favourite/ })
+    const link = await screen.findByRole('link', { name: /favorite/ })
     expect(link).toBeVisible()
     expect(scope.isDone()).toBe(true)
   })
