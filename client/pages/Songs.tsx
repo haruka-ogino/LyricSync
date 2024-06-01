@@ -15,7 +15,7 @@ export default function Songs() {
   if (data) {
     return (
       <>
-        <h1>{`Songs inside collection ${collectionId}:`}</h1>
+        <p className="page-title">{`Songs inside collection ${collectionId}:`}</p>
         <Link to={`/collections/${collectionId}/add-song`}>
           <button>Add Song</button>
         </Link>

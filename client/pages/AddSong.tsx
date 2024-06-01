@@ -27,7 +27,7 @@ export default function AddSong() {
   }
   return (
     <>
-      <h1>Add your song</h1>
+      <p className="page-title">Add your song</p>
       <h2>{`This song will be added to your playlist: ${collectionId}`}</h2>
       <form onSubmit={handleSubmit}>
         <input
