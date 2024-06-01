@@ -39,12 +39,22 @@ describe('Collections', () => {
     )
   }
 
-  it.skip('displays the correct heading', async () => {
-    setUp()
+  // it.skip('displays the correct heading', async () => {
 
-    // Act
-    const currentHeading = screen.getByRole('heading', { level: 1 })
-    // Assert
-    expect(currentHeading.textContent).toBe('Collections')
+  //   // Act
+  //   const currentHeading = screen.getByRole('heading', { level: 1 })
+  //   // Assert
+  //   expect(currentHeading.textContent).toBe('Collections')
+  // })
+
+  it('Is visible on the home page', async () => {
+    setUp()
+    const scope = nock('http://localhost')
+      .get('/api/v1/collections')
+      .reply(200, testData())
+
+    const link = await screen.findByRole('link', { name: /favourite/ })
+    expect(link).toBeVisible()
+    expect(scope.isDone()).toBe(true)
   })
 })
