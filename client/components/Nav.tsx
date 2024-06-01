@@ -16,7 +16,9 @@ export default function Nav() {
     <nav>
       <img src={logo} alt="logo" className="logo" />
       <div>
-        <Link to="collections">My Collections </Link>
+        <h2>
+          <Link to="collections">My Collections</Link>
+        </h2>
         <button onClick={handleClick}>{isShow ? '▲' : '▼'}</button>
         {isShow && (
           <ul>
