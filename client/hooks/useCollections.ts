@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import * as api from '../apis/collections'
 import { CollectionData } from '../../models/collections'
 import { useAuth0 } from '@auth0/auth0-react'
+import jwt from 'jsonwebtoken'
 
 export function useCollections() {
   return useQuery({
@@ -12,13 +13,13 @@ export function useCollections() {
 
 export function useAddCollection() {
   const qc = useQueryClient()
-  const { getAccessTokenSilently } = useAuth0()
+  const { getAccessTokenSilently, user } = useAuth0()
+
   return useMutation({
     mutationFn: async (data: CollectionData) => {
       const token = await getAccessTokenSilently()
-      console.log(token.sub)
-
-      return api.addCollection({ data, token })
+      const sub = user?.sub | ''
+      return api.addCollection({ data, token, sub })
     },
     onSuccess: () => qc.invalidateQueries({ queryKey: ['newCollection'] }),
   })

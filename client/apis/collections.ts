@@ -11,10 +11,14 @@ export async function getCollections() {
 interface Params {
   data: CollectionData
   token: string
+  sub: string
 }
-export async function addCollection({ data, token }: Params) {
+export async function addCollection({ data, token, sub }: Params) {
   console.log(data)
-  await request.post(rootUrl).send(data).set('Authorization', `Bearer ${token}`)
+  await request
+    .post(rootUrl)
+    .send({ data, sub })
+    .set('Authorization', `Bearer ${token}`)
 }
 
 export async function deleteCollection(id: number) {

@@ -26,7 +26,7 @@ function NewCollection() {
   }
 
   // async function newCollection(state) {
-  //   const token: string = await getAccessTokenSilently()
+
   //   mutation.mutate(state, token)
   // }
 

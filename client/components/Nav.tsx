@@ -29,6 +29,8 @@ export default function Nav() {
     loginWithRedirect()
   }
 
+  console.log(user)
+
   return (
     <nav>
       <Link to="/">
