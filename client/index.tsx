@@ -9,14 +9,14 @@ import { Auth0Provider } from '@auth0/auth0-react'
 const router = createBrowserRouter(routes)
 const queryClient = new QueryClient()
 
-document.addEventListener('DOMContentLoaded', () => {
-  createRoot(document.getElementById('app') as HTMLElement).render(
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-      <ReactQueryDevtools />
-    </QueryClientProvider>,
-  )
-})
+// document.addEventListener('DOMContentLoaded', () => {
+//   createRoot(document.getElementById('app') as HTMLElement).render(
+//     <QueryClientProvider client={queryClient}>
+//       <RouterProvider router={router} />
+//       <ReactQueryDevtools />
+//     </QueryClientProvider>,
+//   )
+// })
 
 const root = createRoot(document.getElementById('app') as HTMLElement)
 root.render(
