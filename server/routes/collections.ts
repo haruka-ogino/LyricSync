@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import * as db from '../db/collections'
 import { useParams } from 'react-router-dom'
+import checkJwt from '../auth0'
 const router = Router()
 
 router.get('/', async (req, res) => {
@@ -13,9 +14,10 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.post('/', async (req, res) => {
+router.post('/', checkJwt, async (req, res) => {
   try {
     const data = req.body
+    console.log(data)
     await db.addCollection(data)
     res.status(201)
   } catch (error) {

@@ -21,9 +21,9 @@ export default function Nav() {
     setIsShow(!isShow)
   }
 
-  // const handleSignOut = () => {
-  //   logout()
-  // }
+  const handleSignOut = () => {
+    logout()
+  }
 
   const handleSignIn = () => {
     loginWithRedirect()
@@ -36,7 +36,7 @@ export default function Nav() {
       </Link>
 
       <IfAuthenticated>
-        <button onClick={() => logout}>Sign out</button>
+        <button onClick={handleSignOut}>Sign out</button>
         {user && <p>Signed in as: {user?.nickname}</p>}
       </IfAuthenticated>
       <IfNotAuthenticated>

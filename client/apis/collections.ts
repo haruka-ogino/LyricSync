@@ -8,8 +8,13 @@ export async function getCollections() {
   return res.body as Collection[]
 }
 
-export async function addCollection(data: CollectionData) {
-  await request.post(rootUrl).send(data)
+interface Params {
+  data: CollectionData
+  token: string
+}
+export async function addCollection({ data, token }: Params) {
+  console.log(data)
+  await request.post(rootUrl).send(data).set('Authorization', `Bearer ${token}`)
 }
 
 export async function deleteCollection(id: number) {
