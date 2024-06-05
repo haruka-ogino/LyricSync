@@ -29,3 +29,6 @@ test('/api/v1/collections/1 returns Jung Kook', async () => {
     throw error // Re-throw the error to fail the test if something goes wrong
   }
 })
+
+// cleintId =LzEYnHDT80PKK2dxywN5hIQ7GQqZ9Osq
+// identifier = https://lyric-sync/api
