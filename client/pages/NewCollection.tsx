@@ -11,7 +11,7 @@ function NewCollection() {
 
   const mutation = useAddCollection()
   const navigate = useNavigate()
-  const { getAccessTokenSilently } = useAuth0()
+  // const { getAccessTokenSilently } = useAuth0()
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target
@@ -20,15 +20,15 @@ function NewCollection() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    // mutation.mutate(formState, getToken())
-    // navigate('/collections')
-    newCollection(formState)
+    mutation.mutate(formState)
+    navigate('/collections')
+    // newCollection(formState)
   }
 
-  async function newCollection(state) {
-    const token: string = await getAccessTokenSilently()
-    mutation.mutate(state, token)
-  }
+  // async function newCollection(state) {
+  //   const token: string = await getAccessTokenSilently()
+  //   mutation.mutate(state, token)
+  // }
 
   return (
     <>
