@@ -25,7 +25,7 @@ export default function Nav() {
           {isShow ? '▲' : '▼'}
         </button>
         {isShow && (
-          <ul>
+          <ul className="nav-items">
             {data?.map((collection) => (
               <li
                 id={String(collection.id)}

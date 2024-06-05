@@ -40,3 +40,8 @@ button:hover {
   font-size: 0.8em;
   height: 1em;
 }
+
+.nav-items {
+  display: flex;
+  flex-direction: column;
+}
