@@ -5,21 +5,24 @@ import { useNavigate } from 'react-router-dom'
 function NewCollection() {
   const [formState, setFormState] = useState({
     name: '',
-    user_id: 1,
+    userId: '',
   })
 
   const mutation = useAddCollection()
   const navigate = useNavigate()
+  // const { getAccessTokenSilently } = useAuth0()
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target
     setFormState((prev) => ({ ...prev, [name]: value }))
   }
+
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     mutation.mutate(formState)
     navigate('/collections')
   }
+
   return (
     <>
       <p className="page-title">New collection</p>

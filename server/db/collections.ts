@@ -1,5 +1,6 @@
 import db from './connection'
 import { Collection, CollectionData } from '../../models/collections'
+// import { useAuth0 } from '@auth0/auth0-react'
 
 export async function getCollections() {
   const collections = await db('collections')
@@ -7,7 +8,9 @@ export async function getCollections() {
 }
 
 export async function addCollection(data: CollectionData) {
-  return await db('collections').insert(data)
+  const user_id = data.user_id
+  await db('users').insert({ id: user_id }).onConflict('id').ignore()
+  await db('collections').insert(data)
 }
 
 export async function deleteCollection(id: number) {

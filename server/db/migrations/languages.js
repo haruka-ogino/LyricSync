@@ -4,7 +4,7 @@
  */
 export async function up(knex) {
   return knex.schema.createTable('languages', (table) => {
-    table.increments('id').primary
+    table.increments('id').primary()
     table.string('name')
   })
 }

@@ -5,12 +5,16 @@
 export async function seed(knex) {
   await knex('users').insert([
     {
-      id: 1,
-      name: 'Haruka',
+      id: '1',
+      // name: 'Haruka',
+      // nickname: 'Haruka',
+      // email: 'haruka@email.com',
     },
     {
-      id: 2,
-      name: 'Moa',
+      id: '2',
+      // name: 'Moa',
+      // nickname: 'Moa',
+      // email: 'moa@email.com',
     },
   ])
 }

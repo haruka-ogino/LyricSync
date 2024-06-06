@@ -1,15 +1,16 @@
 nav {
   position: fixed;
-  width: 350px;
+  width: 28%;
   left: 0em;
   top: 0em;
-  height: 98vh;
+  height: 100vh;
   background-color: #000;
   color: #fff;
   padding: 0em 1em;
   margin-top: 0em;
   font-style: italic;
   font-size: 23px;
+  z-index: 1;
 }
 
 .logo {
@@ -17,26 +18,12 @@ nav {
   padding: 1rem 0.5rem;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button {
-  background: linear-gradient(135deg, rgb(27, 226, 218), rgb(103, 126, 235));
-  border: none;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  filter: brightness(1.2);
-}
-
 .collection-list {
   font-size: 0.8em;
   height: 1em;
+}
+
+.nav-items {
+  display: flex;
+  flex-direction: column;
 }
