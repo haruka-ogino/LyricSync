@@ -8,6 +8,25 @@ ul {
   list-style-type: none;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: linear-gradient(135deg, rgb(27, 226, 218), rgb(103, 126, 235));
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  filter: brightness(1.2);
+}
+
 .page-title {
   padding-left: 40px;
   font-size: 45px;

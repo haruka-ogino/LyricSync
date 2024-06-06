@@ -16,7 +16,7 @@ function Collections() {
     return (
       <>
         <p className="page-title">Collections</p>
-        <ul>
+        <ul className="collections-container">
           {data.map((collection, i) => (
             <li key={i} className="collection-item">
               <Link to={`/collections/${collection.id}`}>
@@ -27,7 +27,7 @@ function Collections() {
             </li>
           ))}
           <Link to="/collections/new-collection">
-            <li>+</li>
+            <li className="collection-item">+</li>
           </Link>
         </ul>
       </>
