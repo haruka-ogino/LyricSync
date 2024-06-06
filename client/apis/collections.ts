@@ -14,7 +14,6 @@ interface Params {
   sub: string
 }
 export async function addCollection({ data, token, sub }: Params) {
-  console.log({ data, sub })
   await request
     .post(rootUrl)
     .send({ data, sub })

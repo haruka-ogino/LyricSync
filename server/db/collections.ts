@@ -8,7 +8,9 @@ export async function getCollections() {
 }
 
 export async function addCollection(data: CollectionData) {
-  return await db('collections').insert(data)
+  const user_id = data.user_id
+  await db('users').insert({ id: user_id }).onConflict('id').ignore()
+  await db('collections').insert(data)
 }
 
 export async function deleteCollection(id: number) {
