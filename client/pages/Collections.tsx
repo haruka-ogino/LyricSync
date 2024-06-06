@@ -18,13 +18,17 @@ function Collections() {
         <p className="page-title">Collections</p>
         <ul>
           {data.map((collection, i) => (
-            <li key={i}>
+            <li key={i} className="collection-item">
               <Link to={`/collections/${collection.id}`}>
                 {collection.name}
               </Link>
+              <br />
               <Delete id={collection.id} />
             </li>
           ))}
+          <Link to="/collections/new-collection">
+            <li>+</li>
+          </Link>
         </ul>
       </>
     )

@@ -10,6 +10,7 @@ nav {
   margin-top: 0em;
   font-style: italic;
   font-size: 23px;
+  z-index: 1;
 }
 
 .logo {
