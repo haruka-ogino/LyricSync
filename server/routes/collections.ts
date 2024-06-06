@@ -17,10 +17,11 @@ router.get('/', async (req, res) => {
 router.post('/', checkJwt, async (req, res) => {
   try {
     const { data, sub } = req.body
-    console.log(data)
-    console.log(sub)
 
-    await db.addCollection(data)
+    const newCollection = { name: data.name, user_id: sub }
+    console.log(newCollection)
+
+    await db.addCollection(newCollection)
     res.status(201)
   } catch (error) {
     res.status(500)

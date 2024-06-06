@@ -8,17 +8,6 @@ export async function getCollections() {
 }
 
 export async function addCollection(data: CollectionData) {
-  // const { getAccessTokenSilently } = useAuth0()
-
-  // const token = await getAccessTokenSilently()
-
-  // // Decode the JWT token without verification (not recommended for production)
-  // const decodedToken = jwt.decode(token)
-
-  // // Get the 'sub' claim
-  // const sub = decodedToken.sub
-  // console.log('auth sub from token string: ' + sub)
-
   return await db('collections').insert(data)
 }
 
