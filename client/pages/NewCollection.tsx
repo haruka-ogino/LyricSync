@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import { useAddCollection } from '../hooks/useCollections'
 import { useNavigate } from 'react-router-dom'
-import { useAuth0 } from '@auth0/auth0-react'
 
 function NewCollection() {
   const [formState, setFormState] = useState({
     name: '',
-    user_id: 1,
+    userId: '',
   })
 
   const mutation = useAddCollection()

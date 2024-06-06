@@ -16,8 +16,10 @@ router.get('/', async (req, res) => {
 
 router.post('/', checkJwt, async (req, res) => {
   try {
-    const data = req.body
+    const { data, sub } = req.body
     console.log(data)
+    console.log(sub)
+
     await db.addCollection(data)
     res.status(201)
   } catch (error) {
