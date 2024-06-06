@@ -4,9 +4,9 @@
  */
 export async function up(knex) {
   return knex.schema.createTable('collections', (table) => {
-    table.increments('id').primary
+    table.increments('id').primary()
     table.string('name')
-    table.string('user_id').references('users.id')
+    table.string('user_id').references('users.id').onDelete('CASCADE')
   })
 }
 
