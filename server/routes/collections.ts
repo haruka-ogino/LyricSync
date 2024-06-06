@@ -1,6 +1,5 @@
 import { Router } from 'express'
 import * as db from '../db/collections'
-import { useParams } from 'react-router-dom'
 import checkJwt from '../auth0'
 const router = Router()
 
@@ -19,7 +18,6 @@ router.post('/', checkJwt, async (req, res) => {
     const { data, sub } = req.body
 
     const newCollection = { name: data.name, user_id: sub }
-    console.log(newCollection)
 
     await db.addCollection(newCollection)
     res.status(201)

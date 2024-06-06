@@ -10,12 +10,7 @@ export default function Nav() {
   const [isShow, setIsShow] = useState(false)
   const { data } = useCollections()
 
-  const {
-    user,
-    // the fns below are promises
-    logout,
-    loginWithRedirect,
-  } = useAuth0()
+  const { user, logout, loginWithRedirect } = useAuth0()
 
   function handleClick() {
     setIsShow(!isShow)
