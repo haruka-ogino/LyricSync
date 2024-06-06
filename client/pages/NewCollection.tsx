@@ -21,13 +21,7 @@ function NewCollection() {
     e.preventDefault()
     mutation.mutate(formState)
     navigate('/collections')
-    // newCollection(formState)
   }
-
-  // async function newCollection(state) {
-
-  //   mutation.mutate(state, token)
-  // }
 
   return (
     <>

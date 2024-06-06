@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import * as api from '../apis/collections'
-import { CollectionData } from '../../models/collections'
+import { CollectionDataFE } from '../../models/collections'
 import { useAuth0 } from '@auth0/auth0-react'
 
 export function useCollections() {
@@ -15,7 +15,7 @@ export function useAddCollection() {
   const { getAccessTokenSilently, user } = useAuth0()
 
   return useMutation({
-    mutationFn: async (data: CollectionData) => {
+    mutationFn: async (data: CollectionDataFE) => {
       const token = await getAccessTokenSilently()
       const sub = user?.sub as string
       return api.addCollection({ data, token, sub })

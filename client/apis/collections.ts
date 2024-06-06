@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { Collection, CollectionData } from '../../models/collections'
+import { Collection, CollectionDataFE } from '../../models/collections'
 
 const rootUrl = '/api/v1/collections'
 
@@ -9,7 +9,7 @@ export async function getCollections() {
 }
 
 interface Params {
-  data: CollectionData
+  data: CollectionDataFE
   token: string
   sub: string
 }
