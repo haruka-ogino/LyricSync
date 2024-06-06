@@ -6,7 +6,7 @@ export async function up(knex) {
   return knex.schema.createTable('collections', (table) => {
     table.increments('id').primary
     table.string('name')
-    table.integer('user_id').references('users.id')
+    table.string('user_id').references('users.id')
   })
 }
 
