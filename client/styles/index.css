@@ -1,6 +1,7 @@
 html {
   position: relative;
   left: 25em;
+  overflow-x: hidden;
 }
 
 ul {
