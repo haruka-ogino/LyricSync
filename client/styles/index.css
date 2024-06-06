@@ -4,6 +4,10 @@ html {
   overflow-x: hidden;
 }
 
+main {
+  width: 72%;
+}
+
 ul {
   list-style-type: none;
 }
