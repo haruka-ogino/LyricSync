@@ -6,6 +6,7 @@ import {
   getSongsByCollection,
 } from '../apis/songs.ts'
 import { AddSong, EditedLyrics, SongData } from '../../models/songs.ts'
+import { useAuth0 } from '@auth0/auth0-react'
 
 export function useLyrics(songId: number, collectionId: number) {
   return useQuery({
@@ -31,8 +32,14 @@ export function useSongsByCollection(collectionId: number) {
 
 export function useAddSong() {
   const qc = useQueryClient()
+  const { getAccessTokenSilently, user } = useAuth0()
   return useMutation({
-    mutationFn: (input: SongData) => addSong(input),
+    mutationFn: async (input: SongData) => {
+      const token = await getAccessTokenSilently()
+      const sub = user?.sub as string
+
+      return addSong({ input, token, sub })
+    },
     onSuccess: () => qc.invalidateQueries({ queryKey: ['newSong'] }),
   })
 }
