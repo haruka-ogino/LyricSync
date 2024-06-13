@@ -45,13 +45,13 @@ export default function NavBar() {
     <>
       <div className="desktop"></div>
       <DesktopNav>
-        <Nav />
+        <Nav openMobile={setToggleMobile} />
       </DesktopNav>
       <MobileNavIcon onClick={() => setToggleMobile((prev) => !prev)}>
-        {!toggleMobile ? '☰' : '☰'}
+        {!toggleMobile ? '☰' : '◀'}
       </MobileNavIcon>
       <MobileNav open={toggleMobile}>
-        <Nav />
+        <Nav openMobile={setToggleMobile} />
       </MobileNav>
     </>
   )

@@ -6,7 +6,10 @@ import logo from '../styles/images/LyricSync-logo-B.png'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 import { useAuth0 } from '@auth0/auth0-react'
 
-export default function Nav() {
+interface Props {
+  openMobile: React.Dispatch<React.SetStateAction<boolean>>
+}
+export default function Nav({ openMobile }: Props) {
   const [isShow, setIsShow] = useState(false)
   const { data } = useCollections()
 
@@ -40,7 +43,9 @@ export default function Nav() {
 
       <div>
         <h2>
-          <Link to="collections">My Collections</Link>
+          <Link to="collections" onClick={() => openMobile(false)}>
+            My Collections
+          </Link>
         </h2>
         <button id="button" onClick={handleClick} data-testid="button">
           {isShow ? '▲' : '▼'}
@@ -54,7 +59,10 @@ export default function Nav() {
                 className="collection-list"
                 data-testid={collection.id}
               >
-                <Link to={`/collections/${collection.id}`}>
+                <Link
+                  to={`/collections/${collection.id}`}
+                  onClick={() => openMobile(false)}
+                >
                   {collection.name}
                 </Link>
               </li>
@@ -63,7 +71,9 @@ export default function Nav() {
         )}
       </div>
       <div>
-        <Link to="collections/new-collection">Create a New Collection</Link>
+        <Link to="collections/new-collection" onClick={() => openMobile(false)}>
+          Create a New Collection
+        </Link>
       </div>
     </nav>
   )
