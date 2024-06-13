@@ -1,16 +1,29 @@
 import { Link } from 'react-router-dom'
 import '../styles/nav.css'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useCollections } from '../hooks/useCollections'
 import logo from '../styles/images/LyricSync-logo-B.png'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 import { useAuth0 } from '@auth0/auth0-react'
+import { useAddUser } from '../hooks/useUsers'
 
 export default function Nav() {
   const [isShow, setIsShow] = useState(false)
   const { data } = useCollections()
 
-  const { user, logout, loginWithRedirect } = useAuth0()
+  const { user, logout, loginWithRedirect, isAuthenticated } = useAuth0()
+  const mutation = useAddUser()
+  const hasRunEffect = useRef(false)
+
+  useEffect(() => {
+    if (!hasRunEffect.current && isAuthenticated && user && user.sub) {
+      mutation.mutate({
+        id: user.sub,
+        nickname: user.nickname || '',
+      })
+      hasRunEffect.current = true
+    }
+  }, [isAuthenticated, user, mutation])
 
   function handleClick() {
     setIsShow(!isShow)
