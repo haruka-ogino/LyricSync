@@ -1,7 +1,13 @@
 html {
   position: relative;
-  left: 30%;
+  left: 35%;
   overflow-x: hidden;
+}
+
+@media (max-width: 1000px) {
+  html {
+    left: 0%;
+  }
 }
 
 main {

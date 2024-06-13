@@ -26,9 +26,9 @@ function Collections() {
               <Delete id={collection.id} />
             </li>
           ))}
-          <Link to="/collections/new-collection">
-            <li className="collection-item">+</li>
-          </Link>
+          <li className="collection-item">
+            <Link to="/collections/new-collection">+</Link>
+          </li>
         </ul>
       </>
     )
