@@ -4,9 +4,9 @@ import checkJwt, { JwtRequest } from '../auth0'
 import { StatusCodes } from 'http-status-codes'
 const router = Router()
 
-router.get('/', async (req: JwtRequest, res) => {
-  const authId = String(req.auth?.sub)
+router.get('/', checkJwt, async (req: JwtRequest, res) => {
   try {
+    const authId = String(req.auth?.sub)
     const collections = await db.getCollections(authId)
     res.json(collections)
   } catch (error) {
@@ -19,8 +19,6 @@ router.post('/', checkJwt, async (req: JwtRequest, res) => {
   try {
     const data = req.body
     const authId = String(req.auth?.sub)
-    console.log(authId)
-
     const newCollection = { name: data.name, user_id: authId }
 
     await db.addCollection(newCollection)
