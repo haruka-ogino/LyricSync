@@ -13,18 +13,27 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.post('/', async (req: JwtRequest, res) => {
-  const { id } = req.body
-  const { auth } = req
-  const existingUser = db.getUserById(id)
+router.get('/:id', async (req, res) => {
+  const id = String(req.params.id)
+  try {
+    const user = await db.getUserById(id)
+    res.json(user)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
+router.post('/', async (req, res) => {
+  const { id, nickname } = req.body
+  const existingUser = await db.getUserById(id)
+
   if (!existingUser) {
     try {
-      await db.addUser(auth?.user.sub)
+      await db.addUser({ id, nickname })
       res.sendStatus(201).send('Added user')
     } catch (error) {
       console.log(error)
-      console.log(auth?.user.sub)
-
       res.status(500).json({ message: 'Something went wrong adding user' })
     }
   }

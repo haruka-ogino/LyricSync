@@ -6,9 +6,9 @@ export async function getUsers() {
 }
 
 export async function getUserById(id: string) {
-  return await db('users').where({ id })
+  return await db('users').where({ id }).first()
 }
 
 export async function addUser(data: User) {
-  await db('users').insert(data)
+  return await db('users').insert(data)
 }
