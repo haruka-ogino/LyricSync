@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import * as db from '../db/collections'
 import checkJwt, { JwtRequest } from '../auth0'
+import { StatusCodes } from 'http-status-codes'
 const router = Router()
 
 router.get('/', async (req: JwtRequest, res) => {
@@ -16,14 +17,14 @@ router.get('/', async (req: JwtRequest, res) => {
 
 router.post('/', checkJwt, async (req: JwtRequest, res) => {
   try {
-    const { data, auth } = req.body
-    const authId = auth.sub
+    const data = req.body
+    const authId = String(req.auth?.sub)
     console.log(authId)
 
     const newCollection = { name: data.name, user_id: authId }
 
     await db.addCollection(newCollection)
-    res.status(201)
+    res.setHeader('Location', req.baseUrl).sendStatus(StatusCodes.CREATED)
   } catch (error) {
     res.status(500)
   }
