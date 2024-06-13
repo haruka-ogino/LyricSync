@@ -7,7 +7,7 @@ export function useCollections() {
   const { getAccessTokenSilently } = useAuth0()
 
   const query = useQuery<Collection[], Error>({
-    queryKey: ['consumables'],
+    queryKey: ['collections'],
     queryFn: async () => {
       const token = await getAccessTokenSilently()
       return api.getCollections(token)
@@ -31,7 +31,7 @@ export function useAddCollection() {
 
       return api.addCollection({ name, userId, token })
     },
-    onSuccess: () => qc.invalidateQueries({ queryKey: ['newCollection'] }),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['collections'] }),
   })
 }
 
