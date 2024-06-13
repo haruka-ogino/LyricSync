@@ -10,7 +10,7 @@ const DesktopNav = styled.div`
   display: flex;
   gap: 1rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     display: none;
   }
 `
@@ -18,9 +18,14 @@ const DesktopNav = styled.div`
 const MobileNavIcon = styled.div`
   display: none;
   cursor: pointer;
+  color: pink;
+  z-index: 2;
 
   @media (max-width: 1000px) {
     display: block;
+    position: fixed;
+    left: 0px;
+    top: 0px;
   }
 `
 
@@ -37,7 +42,6 @@ const MobileNav = styled.div<{ open: boolean }>`
   }
 `
 export default function NavBar() {
-  const [isShow, setIsShow] = useState(false)
   const [toggleMobile, setToggleMobile] = useState(false)
 
   return (
@@ -47,7 +51,7 @@ export default function NavBar() {
         <Nav />
       </DesktopNav>
       <MobileNavIcon onClick={() => setToggleMobile((prev) => !prev)}>
-        &#9776;
+        {!toggleMobile ? '☰' : '☰'}
       </MobileNavIcon>
       <MobileNav open={toggleMobile}>
         <Nav />
