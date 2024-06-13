@@ -8,8 +8,8 @@ export async function getCollections(id: string) {
 }
 
 export async function addCollection(data: CollectionData) {
-  const user_id = data.user_id
-  await db('users').insert({ id: user_id }).onConflict('id').ignore()
+  // const user_id = data.user_id
+  // await db('users').insert({ id: user_id }).onConflict('id').ignore()
   await db('collections').insert(data)
 }
 

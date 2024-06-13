@@ -14,11 +14,13 @@ router.get('/', async (req: JwtRequest, res) => {
   }
 })
 
-router.post('/', checkJwt, async (req, res) => {
+router.post('/', checkJwt, async (req: JwtRequest, res) => {
   try {
-    const { data, sub } = req.body
+    const { data, auth } = req.body
+    const authId = auth.sub
+    console.log(authId)
 
-    const newCollection = { name: data.name, user_id: sub }
+    const newCollection = { name: data.name, user_id: authId }
 
     await db.addCollection(newCollection)
     res.status(201)
