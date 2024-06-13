@@ -10,7 +10,7 @@ export async function getUsers() {
 
 export async function getUserById(id: string) {
   const res = await request.get(`${rootUrl}/${id}`)
-  return res.body as User[]
+  return res.body
 }
 
 export async function addUser(user: User) {

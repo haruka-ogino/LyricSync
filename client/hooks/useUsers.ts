@@ -20,12 +20,7 @@ export function useAddUser(): UseMutationResult<void, Error, User, unknown> {
   return useMutation({
     mutationFn: async (user: User) => {
       const existingUser = await api.getUserById(user.id)
-      console.log(user.id)
-      console.log('existing? ', typeof existingUser)
-
       if (!existingUser) {
-        console.log('added user ' + user.id)
-
         await api.addUser(user)
       }
     },
