@@ -15,14 +15,25 @@ const DesktopNav = styled.div`
 const MobileNavIcon = styled.div`
   display: none;
   cursor: pointer;
-  color: pink;
   z-index: 2;
 
   @media (max-width: 1000px) {
     display: block;
     position: fixed;
-    left: 0px;
-    top: 0px;
+    left: 0.2em;
+    top: 0em;
+    font-size: 2em;
+    font-style: normal;
+    font-family: monospace;
+    background: linear-gradient(
+      to right,
+      rgb(27, 226, 218),
+      rgb(103, 126, 235)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
   }
 `
 
@@ -47,8 +58,17 @@ export default function NavBar() {
       <DesktopNav>
         <Nav openMobile={setToggleMobile} />
       </DesktopNav>
-      <MobileNavIcon onClick={() => setToggleMobile((prev) => !prev)}>
-        {!toggleMobile ? '☰' : '◀'}
+      <MobileNavIcon
+        onClick={() => setToggleMobile((prev) => !prev)}
+        style={
+          !toggleMobile
+            ? {
+                color: 'black',
+              }
+            : {}
+        }
+      >
+        {!toggleMobile ? '☰' : 'x'}
       </MobileNavIcon>
       <MobileNav open={toggleMobile}>
         <Nav openMobile={setToggleMobile} />
