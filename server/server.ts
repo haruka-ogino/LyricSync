@@ -3,10 +3,13 @@ import * as Path from 'node:path'
 
 import collections from './routes/collections.ts'
 import songs from './routes/songs.ts'
+import users from './routes/users.ts'
 
 const server = express()
 
 server.use(express.json())
+
+server.use('/api/v1/users', users)
 
 server.use('/api/v1/collections', collections)
 server.use('/api/v1/collections', songs)

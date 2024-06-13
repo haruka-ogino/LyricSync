@@ -61,8 +61,16 @@ export async function getSongsByCollection(collectionId: number) {
   }
 }
 
-export async function addSong(input: SongData) {
+interface Params {
+  input: SongData
+  token: string
+  sub: string
+}
+export async function addSong({ input, token, sub }: Params) {
   const data = { title: input.title, artist: input.artist }
   const collectionId = input.collectionId
-  await request.post(`${rootUrl}/${collectionId}`).send(data)
+  await request
+    .post(`${rootUrl}/${collectionId}`)
+    .send({ data, sub })
+    .set('Authorization', `Bearer ${token}`)
 }

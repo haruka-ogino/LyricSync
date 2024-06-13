@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import * as db from '../db/songs'
+import checkJwt from '../auth0'
 const router = Router()
 
 router.get('/:collectionId', async (req, res) => {
@@ -13,7 +14,7 @@ router.get('/:collectionId', async (req, res) => {
   }
 })
 
-router.post('/:collectionId', async (req, res) => {
+router.post('/:collectionId', checkJwt, async (req, res) => {
   try {
     const input = req.body
     await db.addSong(input)

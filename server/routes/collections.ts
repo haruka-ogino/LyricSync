@@ -1,11 +1,13 @@
 import { Router } from 'express'
 import * as db from '../db/collections'
-import checkJwt from '../auth0'
+import checkJwt, { JwtRequest } from '../auth0'
+import { StatusCodes } from 'http-status-codes'
 const router = Router()
 
-router.get('/', async (req, res) => {
+router.get('/', checkJwt, async (req: JwtRequest, res) => {
   try {
-    const collections = await db.getCollections()
+    const authId = String(req.auth?.sub)
+    const collections = await db.getCollections(authId)
     res.json(collections)
   } catch (error) {
     console.log(error)
@@ -13,14 +15,14 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.post('/', checkJwt, async (req, res) => {
+router.post('/', checkJwt, async (req: JwtRequest, res) => {
   try {
-    const { data, sub } = req.body
-
-    const newCollection = { name: data.name, user_id: sub }
+    const data = req.body
+    const authId = String(req.auth?.sub)
+    const newCollection = { name: data.name, user_id: authId }
 
     await db.addCollection(newCollection)
-    res.status(201)
+    res.setHeader('Location', req.baseUrl).sendStatus(StatusCodes.CREATED)
   } catch (error) {
     res.status(500)
   }

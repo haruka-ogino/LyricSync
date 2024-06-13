@@ -7,13 +7,13 @@ export async function seed(knex) {
     {
       id: '1',
       // name: 'Haruka',
-      // nickname: 'Haruka',
+      nickname: 'Haruka',
       // email: 'haruka@email.com',
     },
     {
       id: '2',
       // name: 'Moa',
-      // nickname: 'Moa',
+      nickname: 'Moa',
       // email: 'moa@email.com',
     },
   ])
