@@ -17,8 +17,10 @@ export function useAddCollection() {
   return useMutation({
     mutationFn: async (data: CollectionDataFE) => {
       const token = await getAccessTokenSilently()
-      const sub = user?.sub as string
-      return api.addCollection({ data, token, sub })
+      const userId = user?.sub as string
+      const name = data.name
+
+      return api.addCollection({ name, userId, token })
     },
     onSuccess: () => qc.invalidateQueries({ queryKey: ['newCollection'] }),
   })
