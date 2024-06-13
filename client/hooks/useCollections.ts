@@ -1,13 +1,22 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import * as api from '../apis/collections'
-import { CollectionDataFE } from '../../models/collections'
+import { Collection, CollectionDataFE } from '../../models/collections'
 import { useAuth0 } from '@auth0/auth0-react'
 
 export function useCollections() {
-  return useQuery({
-    queryKey: ['collections'],
-    queryFn: api.getCollections,
+  const { getAccessTokenSilently } = useAuth0()
+
+  const query = useQuery<Collection[], Error>({
+    queryKey: ['consumables'],
+    queryFn: async () => {
+      const token = await getAccessTokenSilently()
+      return api.getCollections(token)
+    },
   })
+
+  return {
+    ...query,
+  }
 }
 
 export function useAddCollection() {

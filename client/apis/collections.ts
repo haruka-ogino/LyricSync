@@ -1,11 +1,18 @@
 import request from 'superagent'
-import { Collection, CollectionDataFE } from '../../models/collections'
+import { Collection } from '../../models/collections'
 
 const rootUrl = '/api/v1/collections'
 
-export async function getCollections() {
-  const res = await request.get(rootUrl)
-  return res.body as Collection[]
+export async function getCollections(token: string): Promise<Collection[]> {
+  try {
+    const res = await request
+      .get(rootUrl)
+      .set('Authorization', `Bearer ${token}`)
+
+    return res.body as Collection[]
+  } catch (error) {
+    throw new Error(`Failed to fetch collections: ${error}`)
+  }
 }
 
 // interface Params {
