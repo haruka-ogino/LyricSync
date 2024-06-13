@@ -2,6 +2,6 @@ export interface UserData {
   nickname: string
 }
 
-export interface User {
+export interface User extends UserData {
   id: string
 }
