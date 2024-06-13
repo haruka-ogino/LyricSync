@@ -1,6 +1,3 @@
-// @media (min-width: 769px) {
-//   display: none;
-// }
 import '../styles/nav.css'
 import { useState } from 'react'
 import styled from 'styled-components'
