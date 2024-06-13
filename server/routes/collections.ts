@@ -1,11 +1,12 @@
 import { Router } from 'express'
 import * as db from '../db/collections'
-import checkJwt from '../auth0'
+import checkJwt, { JwtRequest } from '../auth0'
 const router = Router()
 
-router.get('/', async (req, res) => {
+router.get('/', async (req: JwtRequest, res) => {
+  const authId = String(req.auth?.sub)
   try {
-    const collections = await db.getCollections()
+    const collections = await db.getCollections(authId)
     res.json(collections)
   } catch (error) {
     console.log(error)
