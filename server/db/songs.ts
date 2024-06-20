@@ -13,10 +13,10 @@ export async function getSongsByCollection(collectionId: number) {
       'collections.name as collectionName',
     )
 }
-
 interface AddSong {
   title: string
   artist: string
+  collection_id: number
 }
 export async function addSong(input: AddSong) {
   return await db('songs').insert(input)

@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import * as db from '../db/songs'
 import checkJwt from '../auth0'
+import { StatusCodes } from 'http-status-codes'
 const router = Router()
 
 router.get('/:collectionId', async (req, res) => {
@@ -18,8 +19,9 @@ router.post('/:collectionId', checkJwt, async (req, res) => {
   try {
     const input = req.body
     await db.addSong(input)
-    res.status(201)
+    res.setHeader('Location', req.baseUrl).sendStatus(StatusCodes.CREATED)
   } catch (error) {
+    console.log(error)
     res.status(500)
   }
 })
