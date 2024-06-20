@@ -14,12 +14,13 @@ router.get('/:collectionId', async (req, res) => {
   }
 })
 
-router.post('/:collectionId', checkJwt, async (req, res) => {
+router.post('/:collectionId', async (req, res) => {
   try {
     const input = req.body
     await db.addSong(input)
     res.status(201)
   } catch (error) {
+    console.log(error)
     res.status(500)
   }
 })
