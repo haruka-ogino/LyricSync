@@ -1,12 +1,24 @@
 html {
   position: relative;
-  left: 30%;
+  left: 32%;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#app {
+  width: 100%;
   overflow-x: hidden;
 }
 
 @media (max-width: 1000px) {
   html {
     left: 0%;
+    max-width: 100%;
   }
 }
 
@@ -16,6 +28,11 @@ main {
 
 ul {
   list-style-type: none;
+  padding: 0px;
+}
+
+p {
+  padding: 0px;
 }
 
 a {
