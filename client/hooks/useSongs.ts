@@ -40,6 +40,6 @@ export function useAddSong() {
 
       return addSong({ input, token, sub })
     },
-    onSuccess: () => qc.invalidateQueries({ queryKey: ['newSong'] }),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['songs'] }),
   })
 }
