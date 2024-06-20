@@ -1,5 +1,4 @@
-export interface Lyrics {
-  id: number
+export interface LyricsData {
   original_lang: number
   trans_lang: number
   original_lyric: string
@@ -7,4 +6,8 @@ export interface Lyrics {
   romanisation: boolean
   romanised_text: string
   song_id: number
+}
+
+export interface Lyrics {
+  id: number
 }
