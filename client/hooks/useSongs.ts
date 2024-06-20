@@ -5,7 +5,7 @@ import {
   getLyrics,
   getSongsByCollection,
 } from '../apis/songs.ts'
-import { AddSong, EditedLyrics, SongData } from '../../models/songs.ts'
+import { EditedLyrics, SongData } from '../../models/songs.ts'
 import { useAuth0 } from '@auth0/auth0-react'
 
 export function useLyrics(songId: number, collectionId: number) {
