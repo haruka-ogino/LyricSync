@@ -67,7 +67,11 @@ interface Params {
   sub: string
 }
 export async function addSong({ input, token, sub }: Params) {
-  const data = { title: input.title, artist: input.artist }
+  const data = {
+    title: input.title,
+    artist: input.artist,
+    collection_id: input.collectionId,
+  }
   const collectionId = input.collectionId
   await request
     .post(`${rootUrl}/${collectionId}`)
