@@ -18,8 +18,9 @@ router.get('/:collectionId', async (req, res) => {
 router.post('/:collectionId', checkJwt, async (req, res) => {
   try {
     const input = req.body.data
-    console.log(input)
     await db.addSong(input)
+    console.log(req.baseUrl)
+
     res.setHeader('Location', req.baseUrl).sendStatus(StatusCodes.CREATED)
   } catch (error) {
     console.log(error)
