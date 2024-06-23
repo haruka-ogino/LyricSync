@@ -12,7 +12,7 @@ export default function LyricsInLine({ lyrics }: Props) {
 
   return (
     <>
-      <h1>In-line lyrics</h1>
+      <h2>In-line lyrics</h2>
       {originalArr.map((line, index) =>
         line !== ' ' ? (
           <div key={index}>
