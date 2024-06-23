@@ -38,8 +38,18 @@ export default function Lyrics() {
             <button onClick={() => setInLine(true)}>
               show lyrics line by line
             </button>
-            <LyricsDisplay lyrics={lyrics} lang="original" />
-            <LyricsDisplay lyrics={lyrics} lang="translated" />
+            <section
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                // justifyContent: 'space-between',
+                paddingTop: '10px',
+              }}
+            >
+              <LyricsDisplay lyrics={lyrics} lang="original" />
+              <LyricsDisplay lyrics={lyrics} lang="translated" />
+            </section>
           </>
         ) : (
           <>
