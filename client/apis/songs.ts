@@ -1,12 +1,6 @@
 import request from 'superagent'
-import {
-  AddSong,
-  EditedLyrics,
-  Lyrics,
-  Song,
-  SongData,
-} from '../../models/songs'
-import { useParams } from 'react-router-dom'
+import { EditedLyrics, Lyrics, Song, SongData } from '../../models/songs'
+import { LyricsData } from '../../models/lyrics'
 
 const rootUrl = '/api/v1/collections'
 
@@ -24,7 +18,9 @@ export async function getLyrics(
     return res.body as Lyrics
   } catch (error) {
     console.error('Error fetching lyrics.')
-    throw new Error('Failed to fetch lyrics. Please try again.')
+    // throw new Error('Failed to fetch lyrics. Please try again.')
+    window.location.href = `/collections/${collectionId}/${songId}/add-lyrics`
+    return
   }
 }
 
@@ -76,5 +72,25 @@ export async function addSong({ input, token, sub }: Params) {
   await request
     .post(`${rootUrl}/${collectionId}`)
     .send({ data, sub })
+    .set('Authorization', `Bearer ${token}`)
+}
+
+interface AddLyrics {
+  lyrics: LyricsData
+  collectionId: number
+  token: string
+  sub: string
+}
+
+export async function addLyrics({
+  lyrics,
+  collectionId,
+  token,
+  sub,
+}: AddLyrics) {
+  const songId = lyrics.song_id
+  await request
+    .post(`${rootUrl}/${collectionId}/${songId}`)
+    .send({ lyrics, sub })
     .set('Authorization', `Bearer ${token}`)
 }
