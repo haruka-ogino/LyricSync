@@ -32,21 +32,28 @@ export default function Lyrics() {
     return (
       <>
         <p className="page-title">{lyrics.songTitle}</p>
-        <h2>{`Song of id ${songId} inside collection ${collectionId}:`}</h2>
+        {/* <h2>{`Song of id ${songId} inside collection ${collectionId}:`}</h2> */}
         {!inLine ? (
           <>
             <button onClick={() => setInLine(true)}>
               show lyrics line by line
             </button>
-            <LyricsDisplay lyrics={lyrics} lang="original" />
-            <LyricsDisplay lyrics={lyrics} lang="translated" />
+            <section
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+              }}
+            >
+              <LyricsDisplay lyrics={lyrics} lang="original" />
+              <LyricsDisplay lyrics={lyrics} lang="translated" />
+            </section>
           </>
         ) : (
           <>
             <button onClick={() => setInLine(false)}>
               show lyrics side by side
             </button>
-            <p>this should be the only thing showing</p>
             <LyricsInLine lyrics={lyrics} />
           </>
         )}

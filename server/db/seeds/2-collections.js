@@ -7,7 +7,7 @@ export async function seed(knex) {
     {
       id: 1,
       name: 'favorite',
-      user_id: '1',
+      user_id: 'auth0|660629f581e55eb92186427f',
     },
     {
       id: 2,

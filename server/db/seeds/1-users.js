@@ -5,9 +5,9 @@
 export async function seed(knex) {
   await knex('users').insert([
     {
-      id: '1',
+      id: 'auth0|660629f581e55eb92186427f',
       // name: 'Haruka',
-      nickname: 'Haruka',
+      nickname: 'Lucas',
       // email: 'haruka@email.com',
     },
     {
