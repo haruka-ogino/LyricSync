@@ -16,5 +16,9 @@ export async function seed(knex) {
       id: 3,
       name: 'Korean',
     },
+    {
+      id: 4,
+      name: 'Japanese',
+    },
   ])
 }

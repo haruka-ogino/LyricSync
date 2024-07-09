@@ -28,5 +28,11 @@ export async function seed(knex) {
       artist: 'Shakira',
       collection_id: 1,
     },
+    {
+      id: 5,
+      title: 'Oh Yeah!',
+      artist: 'Arashi',
+      collection_id: 1,
+    },
   ])
 }
