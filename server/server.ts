@@ -4,15 +4,16 @@ import * as Path from 'node:path'
 import collections from './routes/collections.ts'
 import songs from './routes/songs.ts'
 import users from './routes/users.ts'
+import lyrics from './routes/lyrics.ts'
 
 const server = express()
 
 server.use(express.json())
 
 server.use('/api/v1/users', users)
-
 server.use('/api/v1/collections', collections)
 server.use('/api/v1/collections', songs)
+server.use('/api/v1/lyrics', lyrics)
 
 if (process.env.NODE_ENV === 'production') {
   server.use(express.static(Path.resolve('public')))
