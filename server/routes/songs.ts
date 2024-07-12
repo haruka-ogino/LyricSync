@@ -78,29 +78,4 @@ router.patch('/update/lyrics/:id', async (req, res) => {
   }
 })
 
-router.post('/:collectionId/:songId', async (req, res) => {
-  try {
-    const lyrics = req.body.lyrics
-    const authId = req.body.sub
-    console.log(authId)
-    console.log(lyrics)
-
-    // const originalLyrics = lyrics.original_lyric
-    // const transLyrics = lyrics.trans_lyric
-  } catch (error) {
-    console.log(error)
-    res.status(500)
-  }
-
-  // try {
-  //   const input = req.body.data
-  //   await db.addSong(input)
-  //   console.log(req.baseUrl)
-
-  //   res.setHeader('Location', req.baseUrl).sendStatus(StatusCodes.CREATED)
-  // } catch (error) {
-  //   console.log(error)
-  //   res.status(500)
-  // }
-})
 export default router
