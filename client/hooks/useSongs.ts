@@ -36,6 +36,7 @@ export function useSongsByCollection(collectionId: number) {
 export function useAddSong() {
   const qc = useQueryClient()
   const { getAccessTokenSilently, user } = useAuth0()
+
   return useMutation({
     mutationFn: async (input: SongData) => {
       const token = await getAccessTokenSilently()
@@ -55,8 +56,6 @@ export function useAddLyrics() {
     mutationFn: async (lyrics: LyricsData) => {
       const token = await getAccessTokenSilently()
       const sub = String(user?.sub)
-
-      console.log(collectionId)
 
       return addLyrics({
         lyrics,

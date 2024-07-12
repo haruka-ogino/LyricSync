@@ -69,6 +69,7 @@ export async function addSong({ input, token, sub }: Params) {
     collection_id: input.collectionId,
   }
   const collectionId = input.collectionId
+
   await request
     .post(`${rootUrl}/${collectionId}`)
     .send({ data, sub })
