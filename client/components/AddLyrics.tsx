@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { useAddLyrics } from '../hooks/useSongs'
 import { useState } from 'react'
+import Language from './Language'
 
 function AddLyrics() {
   const [lyrics, setLyrics] = useState({
@@ -25,9 +26,11 @@ function AddLyrics() {
   }
   return (
     <>
+      <Language />
       <form onSubmit={handleSubmit}>
         <label htmlFor="org-lyrics">Original Lyrics: </label>
         <br />
+
         <textarea
           name="org-lyrics"
           id="original_lyric"
