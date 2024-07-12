@@ -56,5 +56,3 @@ interface EditedLyrics {
 export async function editLyrics(id: number, editedLyrics: EditedLyrics) {
   return db('lyrics').where('id', id).update(editedLyrics)
 }
-
-export async function addOriginalLyrics() {}

@@ -1,5 +1,6 @@
 import { Router } from 'express'
 const router = Router()
+import * as db from '../db/lyrics'
 
 router.post('/:collectionId/:songId', async (req, res) => {
   try {
@@ -16,7 +17,9 @@ router.post('/:collectionId/:songId', async (req, res) => {
 
     const songId = Number(req.params.songId)
     // const lyrics = `${id} -lyrics`
-    const lyrics = req.body.lyrics
+    const lyrics = req.body
+    console.log(lyrics)
+
     // const authId = req.body.sub
     // console.log(authId)
     const newLyrics = { ...lyrics, song_id: songId }
@@ -24,7 +27,7 @@ router.post('/:collectionId/:songId', async (req, res) => {
     console.log(lyrics)
     res.json(lyrics)
 
-    const addedLyrics = await db.addLyrics(...newLyrics)
+    const addedLyrics = await db.addLyrics({ ...newLyrics })
 
     res.status(200).json(addedLyrics)
 
