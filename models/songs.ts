@@ -1,18 +1,3 @@
-export interface Lyrics {
-  id: number
-  songId: number
-  songTitle: string
-  originLang: string
-  transLang: string
-  originLangId: number
-  transLangId: number
-  originLyrics: string
-  translatedLyrics: string
-  romanisation: boolean
-  romanisedLyrics: string
-  collectionId: number
-}
-
 export interface Message {
   message: string
 }

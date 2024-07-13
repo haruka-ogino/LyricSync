@@ -8,6 +8,6 @@ export interface LyricsData {
   song_id: number
 }
 
-export interface Lyrics {
+export interface Lyrics extends LyricsData {
   id: number
 }
