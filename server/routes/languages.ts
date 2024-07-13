@@ -5,7 +5,6 @@ import * as db from '../db/languages'
 router.get('/', async (req, res) => {
   try {
     const languages = await db.allLanguages()
-
     res.status(200).json(languages)
   } catch (error) {
     console.log(error)
