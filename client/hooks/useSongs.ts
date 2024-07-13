@@ -1,6 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import {
-  addLyrics,
   addSong,
   editLyrics,
   getLyrics,
@@ -8,8 +7,6 @@ import {
 } from '../apis/songs.ts'
 import { EditedLyrics, SongData } from '../../models/songs.ts'
 import { useAuth0 } from '@auth0/auth0-react'
-import { LyricsData } from '../../models/lyrics.ts'
-import { useParams } from 'react-router-dom'
 
 export function useLyrics(songId: number, collectionId: number) {
   return useQuery({
@@ -45,25 +42,5 @@ export function useAddSong() {
       return addSong({ input, token, sub })
     },
     onSuccess: () => qc.invalidateQueries({ queryKey: ['songs'] }),
-  })
-}
-
-export function useAddLyrics() {
-  const qc = useQueryClient()
-  const { getAccessTokenSilently, user } = useAuth0()
-  const { collectionId } = useParams<{ collectionId: string }>()
-  return useMutation({
-    mutationFn: async (lyrics: LyricsData) => {
-      const token = await getAccessTokenSilently()
-      const sub = String(user?.sub)
-
-      return addLyrics({
-        lyrics,
-        collectionId: Number(collectionId),
-        token,
-        sub,
-      })
-    },
-    onSuccess: () => qc.invalidateQueries({ queryKey: ['newLyrics'] }),
   })
 }
