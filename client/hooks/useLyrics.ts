@@ -24,6 +24,7 @@ export function useAddLyrics() {
   const qc = useQueryClient()
   const { getAccessTokenSilently, user } = useAuth0()
   const { collectionId } = useParams<{ collectionId: string }>()
+  const { songId } = useParams<{ songId: string }>()
   return useMutation({
     mutationFn: async (lyrics: LyricsData) => {
       const token = await getAccessTokenSilently()
@@ -32,10 +33,11 @@ export function useAddLyrics() {
       return addLyrics({
         lyrics,
         collectionId: Number(collectionId),
+        songId: Number(songId),
         token,
         sub,
       })
     },
-    onSuccess: () => qc.invalidateQueries({ queryKey: ['newLyrics'] }),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['lyrics'] }),
   })
 }

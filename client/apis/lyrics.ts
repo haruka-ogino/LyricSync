@@ -43,6 +43,7 @@ export async function editLyrics(lyrics: EditedLyrics) {
 interface AddLyrics {
   lyrics: LyricsData
   collectionId: number
+  songId: number
   token: string
   sub: string
 }
@@ -50,10 +51,10 @@ interface AddLyrics {
 export async function addLyrics({
   lyrics,
   collectionId,
+  songId,
   token,
   sub,
 }: AddLyrics) {
-  const songId = lyrics.song_id
   await request
     .post(`${rootUrl}/${collectionId}/${songId}`)
     .send({ lyrics, sub })
