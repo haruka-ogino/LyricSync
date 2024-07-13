@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useLyrics } from '../hooks/useSongs'
 import LyricsDisplay from '../components/LyricsDisplay'
 import { useState } from 'react'
@@ -31,8 +31,10 @@ export default function Lyrics() {
   if (lyrics) {
     return (
       <>
+        <Link to={`/collections/collectionId/songId/add-lyrics`}>
+          <button>Add / Edit Lyrics</button>
+        </Link>
         <p className="page-title">{lyrics.songTitle}</p>
-        {/* <h2>{`Song of id ${songId} inside collection ${collectionId}:`}</h2> */}
         {!inLine ? (
           <>
             <button onClick={() => setInLine(true)}>
