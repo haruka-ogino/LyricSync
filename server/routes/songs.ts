@@ -30,20 +30,24 @@ router.post('/:collectionId', checkJwt, async (req, res) => {
 
 // getLyrics by songId
 router.get('/:collectionId/:songId', async (req, res) => {
+  const collectionId = Number(req.params.collectionId)
+  const songId = Number(req.params.songId)
+  const lyrics = await db.getLyrics(songId)
+  console.log(collectionId)
   try {
-    const collectionId = Number(req.params.collectionId)
-    const songId = Number(req.params.songId)
-    const lyrics = await db.getLyrics(songId)
-
     if (lyrics.collectionId !== collectionId) {
+      console.log('wrong collectionId; diff from params')
+
       return res.status(404).json({
         message: 'This collection does not contain the selected song.',
       })
+    } else {
+      res.json(lyrics)
     }
-
-    res.json(lyrics)
   } catch (error) {
     console.log(error)
+    console.log('something wrong...')
+
     res.status(500).json({ message: 'Something went wrong' })
   }
 })
