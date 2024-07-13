@@ -18,7 +18,7 @@ export async function getLyrics(
   } catch (error) {
     console.error('Error fetching lyrics.')
     // throw new Error('Failed to fetch lyrics. Please try again.')
-    // window.location.href = `/collections/${collectionId}/${songId}/add-lyrics`
+    window.location.href = `/collections/${collectionId}/${songId}/add-lyrics`
     return
   }
 }
