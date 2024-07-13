@@ -33,7 +33,6 @@ router.get('/:collectionId/:songId', async (req, res) => {
   const collectionId = Number(req.params.collectionId)
   const songId = Number(req.params.songId)
   const lyrics = await db.getLyrics(songId)
-  console.log(collectionId)
   try {
     if (lyrics.collectionId !== collectionId) {
       console.log('wrong collectionId; diff from params')
