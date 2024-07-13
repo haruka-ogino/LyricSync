@@ -3,7 +3,7 @@ import { getLanguages } from '../apis/language'
 
 export function useLanguage() {
   return useQuery({
-    queryKey: ['language'],
+    queryKey: ['languages'],
     queryFn: getLanguages,
   })
 }
