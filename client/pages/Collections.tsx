@@ -9,7 +9,7 @@ function Collections() {
     return <p>is loading...</p>
   }
   if (isError) {
-    return <p>Something went wrong - collections.tsx</p>
+    return <p>Something went wrong</p>
   }
 
   if (data) {
