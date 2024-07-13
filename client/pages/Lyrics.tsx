@@ -1,8 +1,9 @@
 import { Link, useParams } from 'react-router-dom'
-import { useLyrics } from '../hooks/useSongs'
+
 import LyricsDisplay from '../components/LyricsDisplay'
 import { useState } from 'react'
 import LyricsInLine from '../components/LyricsInLine'
+import { useLyrics } from '../hooks/useLyrics'
 
 export default function Lyrics() {
   const { collectionId } = useParams()
