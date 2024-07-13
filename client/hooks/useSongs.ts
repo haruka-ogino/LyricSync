@@ -1,27 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import {
-  addSong,
-  editLyrics,
-  getLyrics,
-  getSongsByCollection,
-} from '../apis/songs.ts'
-import { EditedLyrics, SongData } from '../../models/songs.ts'
+import { addSong, getSongsByCollection } from '../apis/songs.ts'
+import { SongData } from '../../models/songs.ts'
 import { useAuth0 } from '@auth0/auth0-react'
-
-export function useLyrics(songId: number, collectionId: number) {
-  return useQuery({
-    queryKey: ['lyrics', songId, collectionId],
-    queryFn: () => getLyrics(songId, collectionId),
-  })
-}
-
-export function useEditLyrics() {
-  const qc = useQueryClient()
-  return useMutation({
-    mutationFn: (lyrics: EditedLyrics) => editLyrics(lyrics),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ['lyrics'] }),
-  })
-}
 
 export function useSongsByCollection(collectionId: number) {
   return useQuery({
