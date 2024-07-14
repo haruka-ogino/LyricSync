@@ -14,7 +14,7 @@ server.use(express.json())
 server.use('/api/v1/users', users)
 server.use('/api/v1/collections', collections)
 server.use('/api/v1/collections', songs)
-server.use('/api/v1/collections', lyrics)
+server.use('/api/v1/lyrics', lyrics)
 server.use('/api/v1/languages', languages)
 
 if (process.env.NODE_ENV === 'production') {
