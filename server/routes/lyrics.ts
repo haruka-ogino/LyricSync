@@ -1,7 +1,8 @@
 import { Router } from 'express'
-const router = Router()
 import * as db from '../db/lyrics'
 import checkJwt from '../auth0'
+
+const router = Router()
 
 router.post('/:collectionId/:songId', checkJwt, async (req, res) => {
   try {
