@@ -5,31 +5,30 @@ import { useAddLyrics } from '../hooks/useLyrics'
 import { useLanguage } from '../hooks/useLanguage'
 
 function AddLyrics() {
+  const songId = Number(useParams().songId)
   const [lyrics, setLyrics] = useState({
-    original_lang: 0,
-    trans_lang: 0,
-    original_lyric: '',
-    trans_lyric: '',
+    originalLang: 1,
+    transLang: 1,
+    originalLyric: '',
+    transLyric: '',
     romanisation: false,
-    romanised_text: '',
-    song_id: 0,
+    romanisedText: '',
+    songId: songId,
   })
-
   const { data: languages } = useLanguage()
 
   const mutation = useAddLyrics()
-  const navigate = useNavigate()
-  const collectionId = Number(useParams().collectionId)
-  const songId = Number(useParams().songId)
+  // const navigate = useNavigate()
+  // const collectionId = Number(useParams().collectionId)
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    console.log('add lyrics')
-    console.log('lyrics: ' + lyrics)
-
-    mutation.mutate(lyrics)
-
-    navigate(`/collections/${collectionId}/${songId}`)
+    const newLyrics = {
+      ...lyrics,
+    }
+    console.log('new lyrics:', newLyrics)
+    mutation.mutate(newLyrics)
+    // navigate(`/collections/${collectionId}/${songId}`)
   }
 
   return (
@@ -44,13 +43,13 @@ function AddLyrics() {
           rows={10}
           placeholder="Add the lyrics in original language"
           onChange={(e) =>
-            setLyrics({ ...lyrics, original_lyric: e.target.value })
+            setLyrics({ ...lyrics, originalLyric: e.target.value })
           }
         />
         <select
-          value={lyrics.original_lang}
+          value={lyrics.originalLang}
           onChange={(e) =>
-            setLyrics({ ...lyrics, original_lang: Number(e.target.value) })
+            setLyrics({ ...lyrics, originalLang: Number(e.target.value) })
           }
         >
           <option value="" disabled>
@@ -70,15 +69,13 @@ function AddLyrics() {
           id="trs-lyrics"
           rows={10}
           placeholder="Add the lyrics in translated language"
-          onChange={(e) =>
-            setLyrics({ ...lyrics, trans_lyric: e.target.value })
-          }
+          onChange={(e) => setLyrics({ ...lyrics, transLyric: e.target.value })}
         />
         <select
-          value={lyrics.trans_lang}
-          onChange={(e) =>
-            setLyrics({ ...lyrics, trans_lang: Number(e.target.value) })
-          }
+          value={lyrics.transLang}
+          onChange={(e) => {
+            setLyrics({ ...lyrics, transLang: Number(e.target.value) })
+          }}
         >
           <option value="" disabled>
             Select Language
