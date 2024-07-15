@@ -32,9 +32,6 @@ export default function Lyrics() {
   if (lyrics) {
     return (
       <>
-        <Link to={`/collections/${collectionId}/${songId}/add-lyrics`}>
-          <button>Add Lyrics</button>
-        </Link>
         <p className="page-title">{lyrics.songTitle}</p>
         {!inLine ? (
           <>
