@@ -42,8 +42,6 @@ export async function editLyrics(lyrics: EditedLyrics) {
 
 //lyrics/:songId (add new lyrics)
 export async function addLyrics(lyrics: LyricsData, songId: number) {
-  console.log('Adding lyrics to DB:', lyrics)
-
   try {
     const res = await request.post(`/api/v1/lyrics/${songId}`).send(lyrics)
     return res.body
