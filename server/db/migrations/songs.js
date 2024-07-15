@@ -7,7 +7,12 @@ export async function up(knex) {
     table.increments('id').primary()
     table.string('title')
     table.string('artist')
-    table.integer('collection_id').references('collections.id')
+    table
+      .integer('collection_id')
+      .unsigned()
+      .references('id')
+      .inTable('collections')
+      .onDelete('CASCADE')
   })
 }
 

@@ -12,7 +12,6 @@ export interface Lyrics {
   romanisedLyrics: string
   collectionId: number
 }
-
 export interface Message {
   message: string
 }

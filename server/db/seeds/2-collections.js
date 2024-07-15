@@ -14,5 +14,10 @@ export async function seed(knex) {
       name: 'frequently played',
       user_id: '2',
     },
+    {
+      id: 3,
+      name: 'favorite',
+      user_id: 'auth0|666a68061c037bdf73501cf4',
+    },
   ])
 }

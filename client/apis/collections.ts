@@ -15,12 +15,6 @@ export async function getCollections(token: string): Promise<Collection[]> {
   }
 }
 
-// interface Params {
-//   data: CollectionDataFE
-//   token: string
-//   userId: string
-// }
-
 interface Params {
   name: string
   userId: string

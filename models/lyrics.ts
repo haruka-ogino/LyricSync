@@ -8,6 +8,23 @@ export interface LyricsData {
   song_id: number
 }
 
-export interface Lyrics {
+export interface Lyrics extends LyricsData {
   id: number
+}
+
+export interface AddLyrics {
+  originalLang: number
+  transLang: number
+  originalLyric: string
+  transLyric: string
+  romanisation: boolean
+  romanisedText: string
+  songId: number
+}
+export interface Lyrics extends LyricsData {
+  id: number
+}
+export interface LyricsInfo extends Lyrics {
+  songTitle: string
+  collectionId: number
 }

@@ -1,30 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import {
-  addLyrics,
-  addSong,
-  editLyrics,
-  getLyrics,
-  getSongsByCollection,
-} from '../apis/songs.ts'
-import { EditedLyrics, SongData } from '../../models/songs.ts'
+import { addSong, deleteSong, getSongsByCollection } from '../apis/songs.ts'
+import { SongData } from '../../models/songs.ts'
 import { useAuth0 } from '@auth0/auth0-react'
-import { LyricsData } from '../../models/lyrics.ts'
-import { useParams } from 'react-router-dom'
-
-export function useLyrics(songId: number, collectionId: number) {
-  return useQuery({
-    queryKey: ['lyrics', songId, collectionId],
-    queryFn: () => getLyrics(songId, collectionId),
-  })
-}
-
-export function useEditLyrics() {
-  const qc = useQueryClient()
-  return useMutation({
-    mutationFn: (lyrics: EditedLyrics) => editLyrics(lyrics),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ['lyrics'] }),
-  })
-}
 
 export function useSongsByCollection(collectionId: number) {
   return useQuery({
@@ -48,22 +25,18 @@ export function useAddSong() {
   })
 }
 
-export function useAddLyrics() {
-  const qc = useQueryClient()
-  const { getAccessTokenSilently, user } = useAuth0()
-  const { collectionId } = useParams<{ collectionId: string }>()
+interface Params {
+  collectionId: number
+  songId: number
+}
+export function useDeleteSong() {
+  const { getAccessTokenSilently } = useAuth0()
+  const client = useQueryClient()
   return useMutation({
-    mutationFn: async (lyrics: LyricsData) => {
+    mutationFn: async ({ collectionId, songId }: Params) => {
       const token = await getAccessTokenSilently()
-      const sub = String(user?.sub)
-
-      return addLyrics({
-        lyrics,
-        collectionId: Number(collectionId),
-        token,
-        sub,
-      })
+      return deleteSong({ collectionId, songId, token })
     },
-    onSuccess: () => qc.invalidateQueries({ queryKey: ['newLyrics'] }),
+    onSuccess: () => client.invalidateQueries({ queryKey: ['songs'] }),
   })
 }
