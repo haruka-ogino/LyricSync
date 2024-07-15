@@ -12,6 +12,28 @@ export async function getSongsByCollection(collectionId: number) {
       'collections.name as collectionName',
     )
 }
+
+export async function getSong(collectionId: number, songId: number) {
+  return await db('songs')
+    .where('songs.collection_id', collectionId)
+    .andWhere('songs.id', songId)
+}
+
+export async function deleteSong(collectionId: number, songId: number) {
+  try {
+    const result = await db('songs')
+      .where('songs.collection_id', collectionId)
+      .andWhere('songs.id', songId)
+      .delete()
+
+    if (result === 0) {
+      throw new Error('Song not found')
+    }
+  } catch (error) {
+    console.error('Database error:', error)
+    throw error
+  }
+}
 interface AddSong {
   title: string
   artist: string
