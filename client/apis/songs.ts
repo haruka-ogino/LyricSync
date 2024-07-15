@@ -38,3 +38,20 @@ export async function addSong({ input, token, sub }: Params) {
     .send({ data, sub })
     .set('Authorization', `Bearer ${token}`)
 }
+interface DeleteSong {
+  collectionId: number
+  songId: number
+  token: string
+}
+export async function deleteSong({
+  collectionId,
+  songId,
+  token,
+}: DeleteSong): Promise<void> {
+  const url = `${rootUrl}/${collectionId}/${songId}`
+
+  return await request
+    .delete(url)
+    .set('Authorization', `Bearer ${token}`)
+    .then((res) => res.body)
+}
