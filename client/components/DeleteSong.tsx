@@ -10,7 +10,9 @@ export default function DeleteSong({ collectionId, songId }: Params) {
 
   function handleClick() {
     const params: Params = { collectionId, songId }
-    mutation.mutate(params)
+    if (window.confirm('Do you really want to delete the song?')) {
+      mutation.mutate(params)
+    }
   }
 
   return <button onClick={handleClick}>-</button>
