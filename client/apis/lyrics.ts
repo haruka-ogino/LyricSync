@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { AddLyrics, Lyrics } from '../../models/lyrics'
+import { Lyrics, LyricsData } from '../../models/lyrics'
 import { EditedLyrics } from '../../models/songs'
 
 const rootUrl = '/api/v1/collections'
@@ -40,20 +40,12 @@ export async function editLyrics(lyrics: EditedLyrics) {
   }
 }
 
-// interface AddLyrics {
-//   lyrics: LyricsData
-//   collectionId: number
-//   songId: number
-//   token: string
-//   sub: string
-// }
-
 //lyrics/:songId (add new lyrics)
-export async function addLyrics(lyrics: AddLyrics, songId: number) {
+export async function addLyrics(lyrics: LyricsData, songId: number) {
   console.log('Adding lyrics to DB:', lyrics)
 
   try {
-    const res = await request.post(`/lyrics/${songId}`).send(lyrics)
+    const res = await request.post(`/api/v1/lyrics/${songId}`).send(lyrics)
     return res.body
   } catch (error) {
     console.error('Error adding lyrics.')

@@ -1,6 +1,6 @@
 import { useQueryClient, useMutation, useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
-import { AddLyrics } from '../../models/lyrics'
+import { LyricsData } from '../../models/lyrics'
 import { addLyrics, editLyrics, getLyrics } from '../apis/lyrics'
 import { EditedLyrics } from '../../models/songs'
 
@@ -24,7 +24,7 @@ export function useAddLyrics() {
   const songId = Number(useParams().songId)
 
   return useMutation({
-    mutationFn: async (lyrics: AddLyrics) => addLyrics(lyrics, songId),
+    mutationFn: async (lyrics: LyricsData) => addLyrics(lyrics, songId),
     onSuccess: () => qc.invalidateQueries({ queryKey: ['lyrics'] }),
   })
 }
