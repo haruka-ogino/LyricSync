@@ -26,9 +26,8 @@ function AddLyrics() {
     const newLyrics = {
       ...lyrics,
     }
-    console.log('new lyrics:', newLyrics)
     mutation.mutate(newLyrics)
-    navigate(`/collections/${collectionId}/${songId}`)
+    navigate(`/collections/${collectionId}`)
   }
 
   return (
