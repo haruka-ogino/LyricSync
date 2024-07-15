@@ -31,20 +31,9 @@ function AddLyrics() {
   }
 
   return (
-    <>
+    <div className="input-container">
       <form onSubmit={handleSubmit}>
         <label htmlFor="org-lyrics">Original Lyrics: </label>
-        <br />
-
-        <textarea
-          name="org-lyrics"
-          id="original_lyric"
-          rows={10}
-          placeholder="Add the lyrics in original language"
-          onChange={(e) =>
-            setLyrics({ ...lyrics, original_lyric: e.target.value })
-          }
-        />
         <select
           value={lyrics.original_lang}
           onChange={(e) =>
@@ -60,36 +49,50 @@ function AddLyrics() {
             </option>
           ))}
         </select>
-
-        <label htmlFor="trs-lyrics">Translated Lyrics: </label>
-        <br />
+        <br></br>
         <textarea
-          name="trs-lyrics"
-          id="trs-lyrics"
+          name="org-lyrics"
+          className="textarea"
+          id="original_lyric"
           rows={10}
-          placeholder="Add the lyrics in translated language"
+          placeholder="Add the lyrics in original language"
           onChange={(e) =>
-            setLyrics({ ...lyrics, trans_lyric: e.target.value })
+            setLyrics({ ...lyrics, original_lyric: e.target.value })
           }
         />
-        <select
-          value={lyrics.trans_lang}
-          onChange={(e) => {
-            setLyrics({ ...lyrics, trans_lang: Number(e.target.value) })
-          }}
-        >
-          <option value="" disabled>
-            Select Language
-          </option>
-          {languages?.map((lang) => (
-            <option key={lang.id} value={lang.id}>
-              {lang.name}
+
+        <div>
+          <label htmlFor="trs-lyrics">Translated Lyrics: </label>
+          <select
+            value={lyrics.trans_lang}
+            onChange={(e) => {
+              setLyrics({ ...lyrics, trans_lang: Number(e.target.value) })
+            }}
+          >
+            <option value="" disabled>
+              Select Language
             </option>
-          ))}
-        </select>
+            {languages?.map((lang) => (
+              <option key={lang.id} value={lang.id}>
+                {lang.name}
+              </option>
+            ))}
+          </select>{' '}
+          <br />
+          <textarea
+            name="trs-lyrics"
+            className="textarea"
+            id="trs-lyrics"
+            rows={10}
+            placeholder="Add the lyrics in translated language"
+            onChange={(e) =>
+              setLyrics({ ...lyrics, trans_lyric: e.target.value })
+            }
+          />
+        </div>
         <button>Save</button>
       </form>
-    </>
+    </div>
   )
 }
 
