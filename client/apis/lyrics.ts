@@ -2,7 +2,7 @@ import request from 'superagent'
 import { Lyrics, LyricsData } from '../../models/lyrics'
 import { EditedLyrics } from '../../models/songs'
 
-const rootUrl = '/api/v1/collections'
+const rootUrl = '/api/v1/lyrics'
 
 export async function getLyrics(
   songId: number,
@@ -43,7 +43,7 @@ export async function editLyrics(lyrics: EditedLyrics) {
 //lyrics/:songId (add new lyrics)
 export async function addLyrics(lyrics: LyricsData, songId: number) {
   try {
-    const res = await request.post(`/api/v1/lyrics/${songId}`).send(lyrics)
+    const res = await request.post(`${rootUrl}/${songId}`).send(lyrics)
     return res.body
   } catch (error) {
     console.error('Error adding lyrics.')
