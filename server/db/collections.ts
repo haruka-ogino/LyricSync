@@ -6,6 +6,10 @@ export async function getCollections(id: string) {
   return collections as Collection[]
 }
 
+export async function getCollectionById(id: string) {
+  return await db('collections').where({ id })
+}
+
 export async function addCollection(data: CollectionData) {
   // const user_id = data.user_id
   // await db('users').insert({ id: user_id }).onConflict('id').ignore()
