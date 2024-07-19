@@ -9,7 +9,8 @@ export default {
     client: 'sqlite3',
     useNullAsDefault: true,
     connection: {
-      filename: Path.join(__dirname, 'dev.sqlite3'),
+      filename: '../../LyricSync.db',
+      // filename: Path.join(__dirname, 'dev.sqlite3'),
     },
     pool: {
       afterCreate: (conn, cb) => conn.run('PRAGMA foreign_keys = ON', cb),
@@ -37,7 +38,8 @@ export default {
     client: 'sqlite3',
     useNullAsDefault: true,
     connection: {
-      filename: '/app/storage/prod.sqlite3',
+      // filename: '/app/storage/prod.sqlite3',
+      filename: '../../LyricSync.db',
     },
     pool: {
       afterCreate: (conn, cb) => conn.run('PRAGMA foreign_keys = ON', cb),
