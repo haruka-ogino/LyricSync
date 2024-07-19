@@ -16,5 +16,9 @@ export async function seed(knex) {
       nickname: 'Moa',
       // email: 'moa@email.com',
     },
+    {
+      id: 'auth0|666a68061c037bdf73501cf4',
+      nickname: 'test',
+    },
   ])
 }

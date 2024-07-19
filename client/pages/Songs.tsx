@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { useSongsByCollection } from '../hooks/useSongs'
+import DeleteSong from '../components/DeleteSong'
 
 export default function Songs() {
   const collectionId = Number(useParams().collectionId)
@@ -22,6 +23,7 @@ export default function Songs() {
         <ul>
           {data.map((song) => (
             <li key={song.id}>
+              <DeleteSong collectionId={collectionId} songId={song.id} />
               <Link to={`/collections/${song.collectionId}/${song.id}`}>
                 {song.title}
               </Link>

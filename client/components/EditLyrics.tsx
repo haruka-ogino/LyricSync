@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Lyrics } from '../../models/songs'
-import { useEditLyrics } from '../hooks/useSongs'
+import { useEditLyrics } from '../hooks/useLyrics'
 
 interface Props {
   lyrics: Lyrics

@@ -28,7 +28,7 @@ export default function LyricsInLine({ lyrics }: Props) {
           </div>
         ) : (
           // eslint-disable-next-line react/jsx-key
-          <br />
+          <br key={index} />
         ),
       )}
     </>

@@ -6,7 +6,7 @@ import Songs from './pages/Songs.tsx'
 import Lyrics from './pages/Lyrics.tsx'
 import AddSong from './pages/AddSong.tsx'
 import NewCollection from './pages/NewCollection.tsx'
-import AddLyrics from './components/AddLyrics.tsx'
+import AddLyrics from './pages/AddLyrics.tsx'
 
 export default createRoutesFromElements(
   <Route path="/" element={<Layout />}>
