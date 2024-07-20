@@ -17,6 +17,7 @@ export async function getSong(collectionId: number, songId: number) {
   return await db('songs')
     .where('songs.collection_id', collectionId)
     .andWhere('songs.id', songId)
+    .first()
 }
 
 export async function deleteSong(collectionId: number, songId: number) {
