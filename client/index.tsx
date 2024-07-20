@@ -11,8 +11,8 @@ const queryClient = new QueryClient()
 const root = createRoot(document.getElementById('app') as HTMLElement)
 root.render(
   <Auth0Provider
-    domain="harakeke24-haruka.au.auth0.com"
-    clientId="LzEYnHDT80PKK2dxywN5hIQ7GQqZ9Osq"
+    domain={import.meta.env.VITE_DOMAIN as string}
+    clientId={import.meta.env.VITE_ID as string}
     authorizationParams={{
       redirect_uri: window.location.origin,
       audience: 'https://lyric-sync/api',
