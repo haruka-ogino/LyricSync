@@ -4,11 +4,11 @@ interface Id {
   id: number
 }
 
-function Delete({ id }: Id) {
+function DeleteCollection({ id }: Id) {
   const mutation = useDeleteCollection()
 
   function handleClick() {
-    if (window.confirm('Do you really want to delete the collection?')) {
+    if (window.confirm('Do you really want to delete this collection?')) {
       mutation.mutate(id)
       window.location.reload()
     }
@@ -16,4 +16,4 @@ function Delete({ id }: Id) {
   return <button onClick={handleClick}>Delete</button>
 }
 
-export default Delete
+export default DeleteCollection

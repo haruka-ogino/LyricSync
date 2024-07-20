@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import Delete from '../components/Delete'
+import DeleteCollection from '../components/DeleteCollection'
 import { useCollections } from '../hooks/useCollections'
 
 function Collections() {
@@ -23,7 +23,7 @@ function Collections() {
                 {collection.name}
               </Link>
               <br />
-              <Delete id={collection.id} />
+              <DeleteCollection id={collection.id} />
             </li>
           ))}
           <li className="collection-item">
