@@ -17,7 +17,7 @@ export default function DeleteSong({ collectionId, songId }: Params) {
   }
 
   return (
-    <button onClick={handleClick}>
+    <button onClick={handleClick} className="delete">
       <RiDeleteBin6Line size={16} />
     </button>
   )

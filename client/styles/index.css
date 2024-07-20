@@ -75,3 +75,8 @@ button:hover {
   max-width: 500px;
   margin: 10px 0px;
 }
+
+.delete {
+  padding: 0.5em;
+  margin: 0.3em 0.5em;
+}
