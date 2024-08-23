@@ -11,11 +11,11 @@ const queryClient = new QueryClient()
 const root = createRoot(document.getElementById('app') as HTMLElement)
 root.render(
   <Auth0Provider
-    domain={import.meta.env.VITE_DOMAIN as string}
-    clientId={import.meta.env.VITE_ID as string}
+    domain="harakeke-2024-moa.au.auth0.com"
+    clientId="NRHrjry6z19ssuiWwYH5cPYRA7DuJf1r"
     authorizationParams={{
       redirect_uri: window.location.origin,
-      audience: 'https://lyric-sync/api',
+      audience: 'https://LyricSync/api',
     }}
   >
     <QueryClientProvider client={queryClient}>
