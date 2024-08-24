@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "4f5745b5-79b4-4b91-90bc-3305723dd5c7",
+  "id": "66fb4b90-7cf5-4bd9-99f5-73462a598b2f",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "collections": {
@@ -23,7 +23,7 @@
         },
         "user_id": {
           "name": "user_id",
-          "type": "integer",
+          "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false

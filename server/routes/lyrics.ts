@@ -35,10 +35,10 @@ router.patch('/update/lyrics/:id', async (req, res) => {
 
     const newLyrics = {
       id,
-      original_lyric: originLyrics,
-      original_lang: originLang,
-      trans_lyric: translatedLyrics,
-      trans_lang: transLang,
+      originalLyric: originLyrics,
+      originalLang: originLang,
+      transLyric: translatedLyrics,
+      transLang: transLang,
     }
 
     if (!newLyrics) {
