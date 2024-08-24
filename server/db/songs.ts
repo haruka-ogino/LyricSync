@@ -47,6 +47,7 @@
 import { db } from './index'
 import { eq, and } from 'drizzle-orm'
 import { collections, songs } from './schema'
+import { SongData } from '../../models/songs'
 
 export async function getSongsByCollection(collectionId: number) {
   return await db
@@ -85,11 +86,7 @@ export async function deleteSong(collectionId: number, songId: number) {
     throw error
   }
 }
-interface AddSong {
-  title: string
-  artist: string
-  collectionId: number
-}
-export async function addSong(input: AddSong) {
+
+export async function addSong(input: SongData) {
   return await db.insert(songs).values(input)
 }
