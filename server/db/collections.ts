@@ -22,21 +22,10 @@
 
 import { db } from './index'
 import { eq } from 'drizzle-orm'
-import { collections, users } from './schema'
-import { Collection, CollectionDataFE } from '../../models/collections'
+import { collections } from './schema'
+import { CollectionDataFE } from '../../models/collections'
 
 export async function getCollections(id: string) {
-  // const rawData = await db.select().from(collections).where(eq(users.id, id))
-  return await db.select().from(collections).where(eq(collections.userId, id))
-
-  // return rawData.map((data) => ({
-  //   id: data.id,
-  //   name: data.name,
-  //   user_id: data.userId,
-  // }))
-}
-
-export async function getCollectionById(id: string) {
   return await db.select().from(collections).where(eq(collections.userId, id))
 }
 

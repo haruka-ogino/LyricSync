@@ -12,7 +12,7 @@ const root = createRoot(document.getElementById('app') as HTMLElement)
 root.render(
   <Auth0Provider
     domain="harakeke-2024-moa.au.auth0.com"
-    clientId="NRHrjry6z19ssuiWwYH5cPYRA7DuJf1r"
+    clientId="UMDAOB90Ag2adEM9fXgV5brdifeq8dbH"
     authorizationParams={{
       redirect_uri: window.location.origin,
       audience: 'https://LyricSync/api',
