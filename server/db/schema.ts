@@ -24,8 +24,12 @@ export const songs = sqliteTable('songs', {
 
 export const lyrics = sqliteTable('lyrics', {
   id: integer('id').primaryKey(),
-  originalLang: integer('original_lang'),
-  transLang: integer('trans_Lang'),
+  originalLang: integer('original_lang').references(() => languages.id, {
+    onDelete: 'cascade',
+  }),
+  transLang: integer('trans_Lang').references(() => languages.id, {
+    onDelete: 'cascade',
+  }),
   originalLyric: text('original_lyric'),
   transLyric: text('trans_lyric'),
   romanisation: integer('romanisation', { mode: 'boolean' }),

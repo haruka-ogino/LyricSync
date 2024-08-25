@@ -45,17 +45,21 @@ import { db } from './index'
 import { eq, sql } from 'drizzle-orm'
 import { collections, languages, lyrics, songs } from './schema'
 import { AddLyrics } from '../../models/lyrics'
+import { alias } from 'drizzle-orm/sqlite-core'
 
 export async function getLyrics(songId: number) {
+  const originLang = alias(languages, 'originLang')
+  const transLang = alias(languages, 'transLang')
+
   const data = await db
     .select({
       id: lyrics.id,
       songId: lyrics.songId,
       songTitle: songs.title,
-      originLangName: sql`${languages.name} AS originLang`,
-      transLang: sql`${languages.name} AS transLang`,
-      originLangId: sql`${languages.id} AS originLangId`,
-      transLangId: sql`${languages.id} AS transLangId`,
+      originLangName: originLang.name,
+      transLangName: transLang.name,
+      originLangId: originLang.id,
+      transLangId: transLang.id,
       originLyrics: lyrics.originalLyric,
       translatedLyrics: lyrics.transLyric,
       romanisation: lyrics.romanisation,
@@ -65,8 +69,8 @@ export async function getLyrics(songId: number) {
     .from(lyrics)
     .leftJoin(songs, sql`${songs.id} = ${lyrics.songId}`)
     .leftJoin(collections, sql`${collections.id} = ${songs.collectionId}`)
-    .leftJoin(languages, sql`${languages.id} = ${lyrics.originalLang}`)
-    .leftJoin(languages, sql`${languages.id} = ${lyrics.transLang}`)
+    .leftJoin(originLang, eq(originLang.id, lyrics.originalLang))
+    .leftJoin(transLang, eq(transLang.id, lyrics.transLang))
     .where(eq(lyrics.songId, songId))
 
   return data[0]
