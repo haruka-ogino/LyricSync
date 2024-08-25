@@ -24,13 +24,13 @@ export const songs = sqliteTable('songs', {
 
 export const lyrics = sqliteTable('lyrics', {
   id: integer('id').primaryKey(),
-  originalLang: integer('oroginal_lang'),
+  originalLang: integer('original_lang'),
   transLang: integer('trans_Lang'),
   originalLyric: text('original_lyric'),
   transLyric: text('trans_lyric'),
   romanisation: integer('romanisation', { mode: 'boolean' }),
   romanisedText: text('romanised_text'),
-  songId: integer('song')
+  songId: integer('song_id')
     .notNull()
     .references(() => songs.id, { onDelete: 'cascade' }),
 })

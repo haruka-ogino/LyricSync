@@ -1,0 +1,1 @@
+ALTER TABLE `lyrics` RENAME COLUMN `oroginal_lang` TO `original_lang`;
