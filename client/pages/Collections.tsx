@@ -9,7 +9,7 @@ function Collections() {
     return <p>is loading...</p>
   }
   if (isError) {
-    return <p>Something went wrong</p>
+    return <p>Please sign in to load your collections</p>
   }
 
   if (data) {

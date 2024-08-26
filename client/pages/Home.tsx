@@ -9,7 +9,17 @@ export default function Home() {
     return <p>is loading...</p>
   }
   if (isError) {
-    return <p>Something went wrong</p>
+    return (
+      <>
+        <p>Please sign in to try LyricSync!</p>
+        <p>
+          <strong>Demo Account:</strong>
+          <br />
+          Email: test@gmail.com <br />
+          Password: Test001!
+        </p>
+      </>
+    )
   }
 
   if (data) {
