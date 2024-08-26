@@ -7,13 +7,13 @@ import { useLanguage } from '../hooks/useLanguage'
 function AddLyrics() {
   const songId = Number(useParams().songId)
   const [lyrics, setLyrics] = useState({
-    original_lang: 1,
-    trans_lang: 1,
-    original_lyric: '',
-    trans_lyric: '',
+    originalLang: 1,
+    transLang: 1,
+    originalLyric: '',
+    transLyric: '',
     romanisation: false,
-    romanised_text: '',
-    song_id: songId,
+    romanisedText: '',
+    songId: songId,
   })
   const { data: languages } = useLanguage()
 
@@ -35,9 +35,9 @@ function AddLyrics() {
       <form onSubmit={handleSubmit}>
         <label htmlFor="org-lyrics">Original Lyrics: </label>
         <select
-          value={lyrics.original_lang}
+          value={lyrics.originalLang}
           onChange={(e) =>
-            setLyrics({ ...lyrics, original_lang: Number(e.target.value) })
+            setLyrics({ ...lyrics, originalLang: Number(e.target.value) })
           }
         >
           <option value="" disabled>
@@ -53,20 +53,20 @@ function AddLyrics() {
         <textarea
           name="org-lyrics"
           className="textarea"
-          id="original_lyric"
+          id="originalLyric"
           rows={10}
           placeholder="Add the lyrics in original language"
           onChange={(e) =>
-            setLyrics({ ...lyrics, original_lyric: e.target.value })
+            setLyrics({ ...lyrics, originalLyric: e.target.value })
           }
         />
 
         <div>
           <label htmlFor="trs-lyrics">Translated Lyrics: </label>
           <select
-            value={lyrics.trans_lang}
+            value={lyrics.transLang}
             onChange={(e) => {
-              setLyrics({ ...lyrics, trans_lang: Number(e.target.value) })
+              setLyrics({ ...lyrics, transLang: Number(e.target.value) })
             }}
           >
             <option value="" disabled>
@@ -86,7 +86,7 @@ function AddLyrics() {
             rows={10}
             placeholder="Add the lyrics in translated language"
             onChange={(e) =>
-              setLyrics({ ...lyrics, trans_lyric: e.target.value })
+              setLyrics({ ...lyrics, transLyric: e.target.value })
             }
           />
         </div>

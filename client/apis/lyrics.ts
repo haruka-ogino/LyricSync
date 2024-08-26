@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { Lyrics, LyricsData } from '../../models/lyrics'
+import { AddLyrics, Lyrics } from '../../models/lyrics'
 import { EditedLyrics } from '../../models/songs'
 
 const rootUrl = '/api/v1/lyrics'
@@ -41,7 +41,8 @@ export async function editLyrics(lyrics: EditedLyrics) {
 }
 
 //lyrics/:songId (add new lyrics)
-export async function addLyrics(lyrics: LyricsData, songId: number) {
+export async function addLyrics(lyrics: AddLyrics) {
+  const songId = Number(lyrics.songId)
   try {
     const res = await request.post(`${rootUrl}/${songId}`).send(lyrics)
     return res.body
