@@ -5,7 +5,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 export function useSongsByCollection(collectionId: number) {
   return useQuery({
-    queryKey: ['songs'],
+    queryKey: ['songs', collectionId],
     queryFn: () => getSongsByCollection(collectionId),
   })
 }
