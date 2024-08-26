@@ -5,8 +5,8 @@ import { JwtPayload } from 'jsonwebtoken'
 import jwks from 'jwks-rsa'
 
 // TODO: set the domain and audience (API Identifier)
-const domain = 'https://harakeke24-haruka.au.auth0.com'
-const audience = 'https://lyric-sync/api'
+const domain = 'harakeke-2024-moa.au.auth0.com'
+const audience = 'https://LyricSync/api'
 
 const checkJwt = jwt({
   secret: jwks.expressJwtSecret({

@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { Song, SongData } from '../../models/songs'
+import { AddSong, Song, SongData } from '../../models/songs'
 
 const rootUrl = '/api/v1/collections'
 
@@ -23,21 +23,25 @@ export async function getSongsByCollection(collectionId: number) {
 interface Params {
   input: SongData
   token: string
-  sub: string
 }
-export async function addSong({ input, token, sub }: Params) {
-  const data = {
-    title: input.title,
-    artist: input.artist,
-    collection_id: input.collectionId,
-  }
+export async function addSong({ input, token }: Params) {
   const collectionId = input.collectionId
 
-  await request
-    .post(`${rootUrl}/${collectionId}`)
-    .send({ data, sub })
-    .set('Authorization', `Bearer ${token}`)
+  try {
+    return await request
+      .post(`${rootUrl}/${collectionId}`)
+      .send({
+        title: input.title,
+        artist: input.artist,
+        collectionId: collectionId,
+      })
+      .set('Authorization', `Bearer ${token}`)
+  } catch (error) {
+    console.error('Error adding song:', error)
+    throw error
+  }
 }
+
 interface DeleteSong {
   collectionId: number
   songId: number

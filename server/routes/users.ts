@@ -1,6 +1,5 @@
 import { Router } from 'express'
 import * as db from '../db/user'
-import { JwtRequest } from '../auth0'
 const router = Router()
 
 router.get('/', async (req, res) => {

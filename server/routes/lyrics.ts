@@ -35,10 +35,10 @@ router.patch('/update/lyrics/:id', async (req, res) => {
 
     const newLyrics = {
       id,
-      original_lyric: originLyrics,
-      original_lang: originLang,
-      trans_lyric: translatedLyrics,
-      trans_lang: transLang,
+      originalLyric: originLyrics,
+      originalLang: originLang,
+      transLyric: translatedLyrics,
+      transLang: transLang,
     }
 
     if (!newLyrics) {
@@ -60,7 +60,7 @@ router.post('/:songId', async (req, res) => {
   try {
     const songId = Number(req.params.songId)
     const lyrics = req.body
-    const newLyrics = { ...lyrics, song_id: songId }
+    const newLyrics = { ...lyrics, songId: songId }
     const addedLyrics = await db.addLyrics({ ...newLyrics })
 
     res.status(200).json(addedLyrics)

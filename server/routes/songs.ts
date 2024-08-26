@@ -27,7 +27,35 @@ router.get('/:collectionId/:songId', async (req, res) => {
   }
 })
 
-router.delete('/:collectionId/:songId', checkJwt, async (req, res) => {
+// router.delete('/:collectionId/:songId', checkJwt, async (req, res) => {
+//   try {
+//     const collectionId = Number(req.params.collectionId)
+//     const songId = Number(req.params.songId)
+
+//     await db.deleteSong(collectionId, songId)
+//     res.sendStatus(StatusCodes.NO_CONTENT)
+//   } catch (error) {
+//     console.error('Error deleting song:', error)
+//     res.status(500).json({ message: 'Deleting song was failed' })
+//   }
+// })
+
+// router.post('/:collectionId', checkJwt, async (req, res) => {
+//   try {
+//     const input = req.body.data
+//     await db.addSong(input)
+//     console.log(req.baseUrl)
+
+//     res.setHeader('Location', req.baseUrl).sendStatus(StatusCodes.CREATED)
+//   } catch (error) {
+//     console.log(error)
+//     res.status(500)
+//   }
+// })
+
+//try w.o jwt temporarily
+
+router.delete('/:collectionId/:songId', async (req, res) => {
   try {
     const collectionId = Number(req.params.collectionId)
     const songId = Number(req.params.songId)
@@ -40,9 +68,9 @@ router.delete('/:collectionId/:songId', checkJwt, async (req, res) => {
   }
 })
 
-router.post('/:collectionId', checkJwt, async (req, res) => {
+router.post('/:collectionId', async (req, res) => {
   try {
-    const input = req.body.data
+    const input = req.body
     await db.addSong(input)
     console.log(req.baseUrl)
 

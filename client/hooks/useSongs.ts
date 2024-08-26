@@ -5,21 +5,19 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 export function useSongsByCollection(collectionId: number) {
   return useQuery({
-    queryKey: ['songs'],
+    queryKey: ['songs', collectionId],
     queryFn: () => getSongsByCollection(collectionId),
   })
 }
 
 export function useAddSong() {
   const qc = useQueryClient()
-  const { getAccessTokenSilently, user } = useAuth0()
+  const { getAccessTokenSilently } = useAuth0()
 
   return useMutation({
     mutationFn: async (input: SongData) => {
       const token = await getAccessTokenSilently()
-      const sub = user?.sub as string
-
-      return addSong({ input, token, sub })
+      return addSong({ input, token })
     },
     onSuccess: () => qc.invalidateQueries({ queryKey: ['songs'] }),
   })

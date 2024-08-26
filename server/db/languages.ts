@@ -1,5 +1,6 @@
-import db from './connection'
+import { db } from './index'
+import { languages } from './schema'
 
 export async function allLanguages() {
-  return db('languages')
+  return await db.select().from(languages)
 }
