@@ -6,7 +6,7 @@ This full-stack application utilises React for the front-end, paired with Drizzl
 
 ## Demo
 Live: [https://lyricsync.up.railway.app/]<br>(Demo Account👉 <i>Email; test@gmail.com Password; Test001!</i>)<br>
-<img src="./client/styles/images/LyricSync.gif" alt="Demo Image" style="width: 500px; height: auto;">
+<img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDh1cTlxcjJkc3ZicGQwdHVwYjJ0cTFwMDNrMnNvbHN5ejJmZW9kMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sSv5l2zDjvAcJVQMnB/giphy.gif" alt="Demo Image" style="width: 500px; height: auto;">
 
 ## About
 
