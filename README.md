@@ -1,8 +1,12 @@
 # LyricSync
-Welcome to LyricSync. A full-stack application which allows its user to save the lyrics to their favourite songs. Collections can be created where a set of songs can be compiled and saved. Additionally, the translation to foreign songs can either be executed through the translation feature in the app, or inputted manually.
 
-This full-stack application utilises React for the front-end, paired with Knex and SQLite on the backend, with TypeScript as the primary language across the entire stack.
+Welcome to LyricSync. A full-stack application which allows its user to save the lyrics to their favourite songs. Collections can be created where a set of songs can be compiled and saved. Additionally, the translation of foreign songs can be inputted manually.
 
+This full-stack application utilises React for the front-end, paired with Drizzle and SQLite on the backend, with TypeScript as the primary language across the entire stack.
+
+## Demo
+Live: [https://lyricsync.up.railway.app/]<br>(Demo Account👉 <i>Email; test@gmail.com Password; Test001!</i>)<br>
+<img src="./client/styles/images/LyricSync.gif" alt="Demo Image" style="width: 500px; height: auto;">
 
 ## About
 
@@ -29,21 +33,9 @@ AUTH:
 * log in functionality
 * authorisation - control CRUD operations according to each user
 
-External APIs:
-* implement the use of an external translation API
+
 
 ### Stretch Goals
 
 * drag-n-drop items in a collection
 * support romanisation for languages using a different alphabets/characters
-
-## Installation - **From the command line**
-
-```
-git clone https://github.com/haruka-ogino/LyricSync.git
-cd LyricSync
-npm install # to install dependencies
-npm run dev # to start the dev server
-```
-
-You can find the server running on [http://localhost:3000](http://localhost:3000) and the client running on [http://localhost:5173](http://localhost:5173).
